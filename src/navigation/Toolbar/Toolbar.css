@@ -1,0 +1,59 @@
+.Toolbar {
+    height: 56px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1D3557;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 90;
+    color: #F1FAEE
+}
+
+.Toolbar nav {
+    height: 100%;
+}
+
+.Logo {
+    height: 80%;
+}
+
+.Loading {
+    background-color: red;
+    height: 58px;
+    width: 100px;
+    margin: 0 auto;
+    position: relative;
+    animation-name: example2;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {left:0%; }
+    25%  {left:20%; width: 200px }
+    50%  {left:40%; width: 50%}
+    75%  {left:80%; width: 100px}
+    100% {left:100%; }
+}
+
+@keyframes example2 {
+    0%   {width: 10%; }
+    /* 25%  {left:20%; width: 200px }
+    50%  {left:40%; width: 50%}
+    75%  {left:80%; width: 100px} */
+    100% {width:100%; }
+}
+
+.Progress:not([value]) {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
