@@ -1,5 +1,5 @@
 // import axios from  '../../network/axios-auth'
-import axios from  '../../network/axios'
+import axios from  '../../network/axios-auth'
 import * as actionTypes from './actionTypes'
 
 export const authStart = () => {
@@ -49,9 +49,9 @@ export const auth = (email, password, isSignup) => {
         };
         // 'http://192.168.1.220:8080/api/', 
         // 'https://personel.herokuapp.com/api/',
-        let url = 'https://personel.herokuapp.com/api/register';
+        let url = '/register';
         if (!isSignup) {
-            url = 'https://personel.herokuapp.com/api/login';
+            url = '/login';
         }
         axios.post(url, authData)
             .then(response => {
@@ -64,16 +64,12 @@ export const auth = (email, password, isSignup) => {
                 axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.token}`;
                 dispatch(authSuccess(response.data.token, response.data._id));
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime())));
-
-                console.log("axios.defaults.headers:", axios.defaults.headers)
             })
             .catch(err => {
                 console.log(err.response)
-                if ( err.response === undefined ) {
-                    dispatch(authFail(err));
-                } else {
-                    dispatch(authFail(err.response.data.error));
-                }
+                err.response === undefined ?
+                    dispatch(authFail(err)) :
+                    dispatch(authFail(err.response.data.error))
             });
     };
 };
