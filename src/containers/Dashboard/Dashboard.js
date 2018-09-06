@@ -3,6 +3,7 @@ import css from './Dashboard.module.css'
 
 import {connect} from 'react-redux'
 import * as moment from 'moment'
+import { Redirect } from 'react-router-dom'
 
 import axios from '../../network/axios'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
@@ -11,6 +12,7 @@ import DateRangeCell from '../../components/DateRangeCell/DateRangeCell'
 
 import ReactChartkick, {ColumnChart} from 'react-chartkick'
 import Chart from 'chart.js'
+import Spinner from '../../components/Spinner/Spinner';
 
 
 ReactChartkick.addAdapter(Chart)
@@ -104,8 +106,13 @@ class Dashboard extends Component {
     }
 
     render() {
+        let tranArr = !this.props.loading ? null : <Spinner/>
+        tranArr = !this.props.token ? <Redirect to="/auth" /> : tranArr
+        
+
         return ( 
         <div >
+            {tranArr}
             <DateRangeCell />
             <div className={css.DashboardCell}>
                 <ColumnChart data = {this.state.totalAmountPerMonth}/> 
@@ -135,7 +142,6 @@ const mapStateToProps = state => {
         transactions: state.transaction.transactions,
         loading: state.transaction.loading,
         token: state.auth.token,
-        userId: state.auth.userId,
 
         dateStart: state.date.dateStart,
         dateEnd: state.date.dateEnd,

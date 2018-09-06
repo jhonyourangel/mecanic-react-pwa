@@ -8,7 +8,8 @@ import Aux from '../../hoc/Aux/Aux';
 const toolbar = ( props ) => (
     <Aux>
         <header className={css.Toolbar}>
-            <DrawerToggle clicked={props.drawerToggleClicked} />        
+            <DrawerToggle clicked={props.drawerToggleClicked} /> 
+            <h2>MECANIC</h2>       
         </header>
         { props.loading ? <div className={css.Loading}> </div> : null }
     </Aux>

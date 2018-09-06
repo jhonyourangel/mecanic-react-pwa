@@ -47,8 +47,7 @@ export const auth = (email, password, isSignup) => {
             email: email,
             password: password,
         };
-        // 'http://192.168.1.220:8080/api/', 
-        // 'https://personel.herokuapp.com/api/',
+
         let url = '/register';
         if (!isSignup) {
             url = '/login';
