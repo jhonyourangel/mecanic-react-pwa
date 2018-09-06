@@ -9,9 +9,9 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../store/actions'
 import Spinner from '../../components/Spinner/Spinner'
 import Aux from '../../hoc/Aux/Aux'
-import DateRangeCell from '../../components/DateRangeCell/DateRangeCell'
-import HistoryToolbox from '../../components/HistoryToolbox/HistoryToolbox'
-import EditTransaction from '../../components/EditTransaction/EditTransaction'
+// import DateRangeCell from '../../components/DateRangeCell/DateRangeCell'
+// import HistoryToolbox from '../../components/HistoryToolbox/HistoryToolbox'
+// import EditTransaction from '../../components/EditTransaction/EditTransaction'
 
 class History extends Component {
     state = {
@@ -22,7 +22,7 @@ class History extends Component {
     }
 
     componentDidMount() {
-      
+        
     }
 
 
@@ -107,19 +107,7 @@ class History extends Component {
 
         return (
             <Aux>
-                <EditTransaction 
-                isModalVisible={this.state.isModalVisible} 
-                tran={this.state.selTran} 
-                close={() => this.closeModal()}
-                save={(tran) => this.save(tran)}
-                delete={(tran) => this.delete(tran)}
-                ></EditTransaction>
-                <HistoryToolbox
-                    _addHandler={this._addHandler}
-                    _editHandler={this._editHandler}
-                    _filterHandler={this._filterHandler}
-                ></HistoryToolbox>
-                {this.state.isFilterActive ? <DateRangeCell /> : null}
+                history
                 {tranArr}
             </Aux>
         )

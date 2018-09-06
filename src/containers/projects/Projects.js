@@ -9,7 +9,7 @@ import * as actions from '../../store/actions'
 
 import Spinner from '../../components/Spinner/Spinner'
 import Aux from '../../hoc/Aux/Aux'
-import EditProject from '../../components/EditProject/EditProject'
+// import EditProject from '../../components/EditProject/EditProject'
 
 
 class Projects extends Component {
@@ -84,20 +84,11 @@ class Projects extends Component {
         
         return (
             <Aux>
-                <EditProject 
-                isModalVisible={this.state.isEditAllActive} 
-                proj={proj} 
-                close={() => this.closeModal()}
-                save={(proj) => this.save(proj)}
-                delete={(proj) => this.delete(proj)}
-                ></EditProject>
-                <button onClick={() => this._openEditModal(null)}>Add Project</button>
                 {projElements}
             </Aux>
         )
     }
 }
-
 
 const mapStateToProps = state => {
     return {
@@ -116,5 +107,3 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Projects, axios));
-
-

@@ -9,7 +9,7 @@ const toolbar = ( props ) => (
     <Aux>
         <header className={css.Toolbar}>
             <DrawerToggle clicked={props.drawerToggleClicked} /> 
-            <h2>MECANIC</h2>       
+            <h2>Auto SOFPET</h2>       
         </header>
         { props.loading ? <div className={css.Loading}> </div> : null }
     </Aux>

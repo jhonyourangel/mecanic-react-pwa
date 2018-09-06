@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import css from './Dashboard.module.css'
+// import css from './Dashboard.module.css'
 
 import {connect} from 'react-redux'
 import * as moment from 'moment'
@@ -8,9 +8,11 @@ import { Redirect } from 'react-router-dom'
 import axios from '../../network/axios'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../store/actions'
-import DateRangeCell from '../../components/DateRangeCell/DateRangeCell'
+// import DateRangeCell from '../../components/DateRangeCell/DateRangeCell'
 
-import ReactChartkick, {ColumnChart} from 'react-chartkick'
+import ReactChartkick, {
+  //  ColumnChart
+} from 'react-chartkick'
 import Chart from 'chart.js'
 import Spinner from '../../components/Spinner/Spinner';
 
@@ -109,29 +111,10 @@ class Dashboard extends Component {
         let tranArr = !this.props.loading ? null : <Spinner/>
         tranArr = !this.props.token ? <Redirect to="/auth" /> : tranArr
         
-
         return ( 
         <div >
+            dashboard
             {tranArr}
-            <DateRangeCell />
-            <div className={css.DashboardCell}>
-                <ColumnChart data = {this.state.totalAmountPerMonth}/> 
-            </div>
-            <div className={css.DashboardCell}>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Project Name</th>    
-                            <th>Total Minutes</th>    
-                            <th>Project Income</th>    
-                            <th>Total Earned</th>  
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {this.state.tableData}
-                    </tbody>
-                </table>         
-            </div>
         </div>
         )
     }

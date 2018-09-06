@@ -1,5 +1,4 @@
-// import axios from  '../../network/axios-auth'
-import axios from  '../../network/axios-auth'
+import axios from  '../../network/axios'
 import * as actionTypes from './actionTypes'
 
 export const authStart = () => {
@@ -48,9 +47,9 @@ export const auth = (email, password, isSignup) => {
             password: password,
         };
 
-        let url = '/register';
+        let url = '../register';
         if (!isSignup) {
-            url = '/login';
+            url = '../login';
         }
         axios.post(url, authData)
             .then(response => {

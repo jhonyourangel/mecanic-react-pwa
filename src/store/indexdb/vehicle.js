@@ -13,17 +13,6 @@ const dbPromise = idb.open('mecanic', 1, upgradeDB => {
 export const createVehicle = (vehicle, index) => {
     return dbPromise.then(db => {
         const tx = db.transaction('vehicle', 'readwrite');
-
-        if (index < 5) {
-            vehicle.syncStatus = 'new'
-        } else if (index < 10) {
-            vehicle.syncStatus = 'edit'
-        } else if (index < 15) {
-            vehicle.syncStatus = 'delete'
-        } else {
-            vehicle.syncStatus = undefined
-        }
-
         tx.objectStore('vehicle').put({ ...vehicle,
             syncStatus: vehicle.syncStatus || 'synced'
         });
@@ -38,3 +27,13 @@ export const getAllVehicle = (filterValue) => {
             return syncStatusIndex.getAll(filterValue === '' ? undefined : filterValue )
         })
 }
+
+export const remove = (plateNumber) => {
+    return dbPromise.then(db => {
+        const syncStatusIndex = db.transaction('vehicle', 'readwrite')
+            .objectStore('vehicle')
+            console.log(syncStatusIndex, plateNumber)
+            return syncStatusIndex.delete(plateNumber)
+        })
+}
+
