@@ -8,6 +8,7 @@ import moment from 'moment'
 import ButtonToggle from '../ButtonToggle/ButtonToggle';
 
 const INPUT_DATE_FORMAT = 'YYYY-MM-DD'
+const MOMENT_DEFAULT_FORMAT = 'ddd MMM DD YYYY HH:mm:ss [GMT]ZZ'
 
 class DateRangeCell extends Component {
     
@@ -47,7 +48,7 @@ class DateRangeCell extends Component {
     componentDidMount() {
         this.props.onGenericDateRangeSelector(AT.DATE_LAST_7_DAYS)
         this.setState({activeBtnId: this.state.buttons[1].id})
-        // this.props.onDateStart(moment().subtract(1, "days"))
+
         this.props.onDateEnd(moment())
     }
 
@@ -88,9 +89,9 @@ class DateRangeCell extends Component {
             <div className={css.DateRangeCell}>
             <div className={css.DateInputs}>
                 <label htmlFor="from">from:</label>
-                <input id="dateStart" name="from" type="date" value={moment(this.props.dateStart).format(INPUT_DATE_FORMAT)} onChange={(event) => this.inputOnChangeHandler(event)}/>
+                <input id="dateStart" name="from" type="date" value={moment(this.props.dateStart, MOMENT_DEFAULT_FORMAT).format(INPUT_DATE_FORMAT)} onChange={(event) => this.inputOnChangeHandler(event)}/>
                 <label htmlFor="to">to:</label>
-                <input id="dateEnd" name="to" type="date" value={moment(this.props.dateEnd).format(INPUT_DATE_FORMAT)} onChange={(event) => this.inputOnChangeHandler(event)}/>
+                <input id="dateEnd" name="to" type="date" value={moment(this.props.dateEnd, MOMENT_DEFAULT_FORMAT).format(INPUT_DATE_FORMAT)} onChange={(event) => this.inputOnChangeHandler(event)}/>
             </div>
             <div className={css.DatePresetRange}>
                 {btns}

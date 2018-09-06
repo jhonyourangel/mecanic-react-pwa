@@ -95,7 +95,7 @@ class Dashboard extends Component {
         return dataArr
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         const totalAmountPerMonth = this.totalAmountPerMonth(nextProps)
         this.setState({
             totalAmountPerMonth: totalAmountPerMonth,

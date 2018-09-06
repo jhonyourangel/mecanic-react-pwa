@@ -7,6 +7,7 @@ import css from './EditTransaction.module.css'
 const INPUT_DATE_FORMAT = 'YYYY-MM-DD'
 // const INPUT_TIME_FORMAT = 'HH:mm'
 const INPUT_DATETIME_FORMAT = "YYYY-MM-DDTHH:mm"
+const MOMENT_DEFAULT_FORMAT = 'ddd MMM DD YYYY HH:mm:ss [GMT]ZZ'
 
 
 class EditTransaction extends Component {
@@ -37,7 +38,7 @@ class EditTransaction extends Component {
         if (this.props.tran) {
             this.setState({
                 tran: {
-                    workDate: moment(this.props.tran.startTime),
+                    workDate: moment(this.props.tran.startTime, MOMENT_DEFAULT_FORMAT),
                     ...this.props.tran,
                 }
             })
@@ -52,14 +53,14 @@ class EditTransaction extends Component {
         }      
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.tran !== null) {
             this.setState({
                 tran: {
                     ...nextProps.tran,
-                    workDate: moment(nextProps.tran.startTime),
-                    startTime: moment(nextProps.tran.startTime),
-                    endTime: moment(nextProps.tran.endTime),
+                    workDate: moment(nextProps.tran.startTime, MOMENT_DEFAULT_FORMAT),
+                    startTime: moment(nextProps.tran.startTime, MOMENT_DEFAULT_FORMAT),
+                    endTime: moment(nextProps.tran.endTime, MOMENT_DEFAULT_FORMAT),
                 }
             })
         } else {

@@ -10,7 +10,7 @@ export {
     editTransaction,
     deleteTransaction,
     fetchTransactions,
-    fetchTransactionRequest
+
 } from './transaction';
 
 export {
@@ -18,7 +18,7 @@ export {
     editProject,
     deleteProject,
     fetchProjects,
-    fetchProjectRequest
+
 } from './project';
 
 export {

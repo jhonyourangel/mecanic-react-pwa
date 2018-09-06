@@ -17,7 +17,7 @@ class EditProject extends Component {
         this.setState({proj: (this.props.proj !== null) ? this.props.proj.proj : this.defaultProj})
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         console.log('called nextprops:', nextProps.proj);      
         this.setState({proj: (nextProps.proj !== null) ? nextProps.proj : this.defaultProj})
     }
