@@ -1,5 +1,5 @@
 import React from 'react'
-import css from './HistoryToolbox.css'
+import css from './HistoryToolbox.module.css'
 
 const HistoryToolbox = (props) => {
 

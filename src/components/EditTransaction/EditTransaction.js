@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Modal from '../Modal/Modal'
 import Button from '../Button/Button'
 import * as moment from 'moment'
-import css from './EditTransaction.css'
+import css from './EditTransaction.module.css'
 
 const INPUT_DATE_FORMAT = 'YYYY-MM-DD'
 // const INPUT_TIME_FORMAT = 'HH:mm'

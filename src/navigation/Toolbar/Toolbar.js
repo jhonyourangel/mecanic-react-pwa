@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import css from './Toolbar.css';
+import css from './Toolbar.module.css';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 import Aux from '../../hoc/Aux/Aux';
 

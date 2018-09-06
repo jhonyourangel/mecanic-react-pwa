@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import css from './HistoryCell.css'
+import css from './HistoryCell.module.css'
 import * as moment from 'moment'
 import TransitionButton from '../../../components/TransitionButton/TransitionButton';
 

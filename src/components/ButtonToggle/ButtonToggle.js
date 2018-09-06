@@ -1,5 +1,5 @@
 import React from 'react'
-import css from './ButtonToggle.css'
+import css from './ButtonToggle.module.css'
 
 const ButtonToggle = (props) => {
 

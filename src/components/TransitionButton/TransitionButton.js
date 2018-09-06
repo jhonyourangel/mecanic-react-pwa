@@ -1,5 +1,5 @@
 import React from 'react'
-import css from './TransitionButton.css'
+import css from './TransitionButton.module.css'
 import CheckIcon from '../CheckIcon/CheckIcon';
 
 const TransitionButton = (props) => {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../store/actions'
 import * as AT from '../../store/actions/actionTypes'
 
-import css from './DateRangeCell.css'
+import css from './DateRangeCell.module.css'
 import moment from 'moment'
 import ButtonToggle from '../ButtonToggle/ButtonToggle';
 

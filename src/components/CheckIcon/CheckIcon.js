@@ -1,5 +1,5 @@
 import React from 'react'
-import css from './CheckIcon.css'
+import css from './CheckIcon.module.css'
 import Aux from '../../hoc/Aux/Aux'
 
 const CheckIcon = (props) => {

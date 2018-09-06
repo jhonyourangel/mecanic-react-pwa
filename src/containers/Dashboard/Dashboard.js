@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import css from './Dashboard.css'
+import css from './Dashboard.module.css'
 
 import {connect} from 'react-redux'
 import * as moment from 'moment'

@@ -1,5 +1,5 @@
 import React from 'react'
-import css from './ProjectCell.css'
+import css from './ProjectCell.module.css'
 
 const ProjectCell = (props) => {
    return (
