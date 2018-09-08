@@ -17,3 +17,10 @@ export const editVehicle = async (vehicle) => {
 export const deleteVehicle = async (vehicle) => {
     return await axios.delete(VEHICLE_URL + '?id=' + vehicle._id)
 }
+
+/**
+ * this structure is correct
+ * the return promise is what we want 
+ * this way we will handle the errors in the controller
+ * this way (again) we can show a banner with some mapped errors
+ */

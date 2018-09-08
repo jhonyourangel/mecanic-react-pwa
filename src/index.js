@@ -8,6 +8,7 @@ import thunk from 'redux-thunk'
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import * as sw from './utale_serviceworker'
 
 import authReducer from './store/reducers/auth'
 import transactionReducer from './store/reducers/transaction'
@@ -39,4 +40,5 @@ const app = (
 
 ReactDOM.render(app, document.getElementById('root'));
 registerServiceWorker();
+sw.registerSW()
 
