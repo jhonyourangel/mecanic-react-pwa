@@ -1,5 +1,6 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
+/* eslint no-unused-vars: 0 */  // --> OFF
 
 const initialState = {
     transactions: [],

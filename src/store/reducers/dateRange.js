@@ -1,6 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
 import moment from 'moment'
+/* eslint no-unused-vars: 0 */  // --> OFF
 
 const initialState = {
     dateStart: moment().utc().subtract(1, 'days'),

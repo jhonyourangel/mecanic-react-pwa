@@ -8,7 +8,13 @@ class SyncBar extends Component {
     }
 
     refreshPage = () => {
-        window.location.reload(false)
+        //window.location.reload(false)
+        window.self.addEventListener('fetch', event => {
+            debugger
+            console.log('window.self: fetch called--', event)
+        })
+
+        fetch('/api/pwa/vehicle').then(console.log).catch(console.log)
     }
 
     render() {

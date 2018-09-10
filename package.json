@@ -16,11 +16,13 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.0.0-next.a671462c",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "webpack": "^3.10.0"
   },
   "scripts": {
     "start": "react-scripts start ",
     "build": "react-scripts build ",
+    "build_sw": "react-scripts build && cra-append-sw ./utale-sw.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -35,8 +37,5 @@
       "not op_mini all",
       "ie 11"
     ]
-  },
-  "devDependencies": {
-    "sw-precache": "^5.2.1"
   }
 }

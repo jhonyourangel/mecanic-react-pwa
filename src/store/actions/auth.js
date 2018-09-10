@@ -1,5 +1,6 @@
 import axios from  '../../network/axios'
 import * as actionTypes from './actionTypes'
+/* eslint no-unused-vars: 0 */  // --> OFF
 
 export const authStart = () => {
     return {

@@ -46,7 +46,7 @@ const mapStateToProps = state => {
         isAuthenticated: state.auth.token !== null,
     };
 };
-
+    // eslint-disable-next-line
 const mapDispatchToProps = dispatch => {
     return {
     };

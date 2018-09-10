@@ -24,3 +24,7 @@
     height: 11%;
     margin-bottom: 32px;
 }
+
+nav.SidebarNav {
+    border-top: 1px solid #F9F6F2;
+}

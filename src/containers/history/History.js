@@ -96,7 +96,7 @@ class History extends Component {
                     tran={tran}
                     save={(tran) => this.save(tran)}
                     proj={this.props.projects.find(p => p.name === tran.projectName)}
-                    clicked={e => this.openEditTransaction(tran.id)}
+                    clicked={() => this.openEditTransaction(tran.id)}
                 />
             })
         }
