@@ -16,14 +16,14 @@ class App extends Component {
     this.props.onTryAutoSignup()
   }
   
-  fetchData() {
-    axiosVehicles.fetchVehiclesFromServer.then(res => {
-      console.log(res)
-    })
+  fetchData = async () => {
+    const res = await axiosVehicles.fetchVehiclesFromServer()
+    console.log("res is : ", res)
+    res.data.map( vehicle => dexieVehicles.addVehicle(vehicle))
   }
-
-
+  
   render() {
+    this.fetchData()
     let routes = (
       <Switch>
         <Route path="/Auth" component={Auth}/>
