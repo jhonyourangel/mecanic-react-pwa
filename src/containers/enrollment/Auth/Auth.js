@@ -4,7 +4,6 @@ import { Redirect } from 'react-router-dom';
 
 import Input from '../../../components/Input/Input';
 import Button from '../../../components/Button/Button';
-import Spinner from '../../../components/Spinner/Spinner';
 import classes from './Auth.module.css';
 import * as actions from '../../../store/actions';
 
@@ -130,10 +129,6 @@ class Auth extends Component {
                 touched={formElement.config.touched}
                 changed={( event ) => this.inputChangedHandler( event, formElement.id )} />
         ) );
-
-        if (this.props.loading) {
-            form = <Spinner />
-        }
 
         let errorMessage = null;
 

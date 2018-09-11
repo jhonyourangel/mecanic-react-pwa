@@ -1,0 +1,10 @@
+
+fieldset.form_wrapper {
+    border: none;
+}
+
+.form_wrapper > button {
+    margin-left: -30px;
+    border: none;
+    background: none;
+}

@@ -14,7 +14,6 @@ import ReactChartkick, {
   //  ColumnChart
 } from 'react-chartkick'
 import Chart from 'chart.js'
-import Spinner from '../../components/Spinner/Spinner';
 
 
 ReactChartkick.addAdapter(Chart)
@@ -108,7 +107,7 @@ class Dashboard extends Component {
     }
 
     render() {
-        let tranArr = !this.props.loading ? null : <Spinner/>
+        let tranArr =  null
         tranArr = !this.props.token ? <Redirect to="/auth" /> : tranArr
         
         return ( 

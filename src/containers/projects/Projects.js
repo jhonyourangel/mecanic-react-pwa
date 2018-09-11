@@ -6,8 +6,6 @@ import { connect } from 'react-redux'
 import axios from '../../network/axios'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../store/actions'
-
-import Spinner from '../../components/Spinner/Spinner'
 import Aux from '../../hoc/Aux/Aux'
 // import EditProject from '../../components/EditProject/EditProject'
 
@@ -69,7 +67,7 @@ class Projects extends Component {
 
     render() {
         
-        let projElements = <Spinner></Spinner>
+        let projElements = null
         if (this.props.projects !== null && this.props.projects !== undefined) {
             projElements = this.props.projects.map(proj => {
                 return <ProjectCell

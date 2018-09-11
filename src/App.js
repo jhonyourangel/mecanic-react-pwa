@@ -4,16 +4,24 @@ import { connect } from 'react-redux';
 
 import Layout from './hoc/Layout/Layout';
 import Auth from './containers/enrollment/Auth/Auth';
-import History from './containers/history/History'
-import Projects from './containers/projects/Projects'
 import Logout from './containers/enrollment/Logout/Logout'
 import * as actions from './store/actions';
 import Dashboard from './containers/Dashboard/Dashboard';
+import Vehicole from './containers/vehicole/vehicole'
+import * as dexieVehicles from './store/indexdb/dexie-vehicle'
+import * as axiosVehicles from './network/axios-vehicle'
 
 class App extends Component {
   componentDidMount() {
     this.props.onTryAutoSignup()
   }
+  
+  fetchData() {
+    axiosVehicles.fetchVehiclesFromServer.then(res => {
+      console.log(res)
+    })
+  }
+
 
   render() {
     let routes = (
@@ -27,11 +35,9 @@ class App extends Component {
     if ( this.props.isAuthenticated ) {
       routes = (
         <Switch>
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/history" component={History} />
-          <Route path="/projects" component={Projects} />
+          <Route path="/vehicole" component={Vehicole} />
           <Route path="/logout" component={Logout} />
-          <Route path="/" component={History} />
+          <Route path="/" component={Vehicole} />
           <Redirect to="/" />
         </Switch>
       )

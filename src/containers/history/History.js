@@ -7,7 +7,6 @@ import { Redirect } from 'react-router-dom'
 import axios from '../../network/axios'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../store/actions'
-import Spinner from '../../components/Spinner/Spinner'
 import Aux from '../../hoc/Aux/Aux'
 // import DateRangeCell from '../../components/DateRangeCell/DateRangeCell'
 // import HistoryToolbox from '../../components/HistoryToolbox/HistoryToolbox'
@@ -88,7 +87,7 @@ class History extends Component {
 
     render() {
         
-        let tranArr = <Spinner />
+        let tranArr = null
         if (!this.props.loading) {
             tranArr = this.props.transactions.map(tran => {
                 return <HistoryCell

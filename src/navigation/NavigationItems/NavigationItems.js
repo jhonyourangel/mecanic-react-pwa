@@ -7,9 +7,9 @@ import Aux from '../../hoc/Aux/Aux';
 const NavigationItems = ( props ) => {
     let navigationItems = (
         <Aux>
-            <NavigationItem link="/dashboard">Dashboard</NavigationItem>
-            <NavigationItem link="/history">History</NavigationItem>
-            <NavigationItem link="/projects">Projects</NavigationItem>
+            <NavigationItem link="/vehicole">Vehicoli</NavigationItem>
+            <NavigationItem link="/intretineri">Intretineri</NavigationItem>
+            <NavigationItem link="/produse">Produse</NavigationItem>
         </Aux>
     )
     return (

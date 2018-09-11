@@ -5,8 +5,10 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 
-import './index.css';
+import css from './index.module.css';
 import App from './App';
+import { IconContext } from "react-icons";
+
 import registerServiceWorker from './registerServiceWorker';
 
 import authReducer from './store/reducers/auth'
@@ -32,7 +34,9 @@ const store = createStore(
 const app = (
     <Provider store={store} >
         <BrowserRouter>
-            <App />
+            <IconContext.Provider value={{ color: "#4C9F70", className: css.Icons_size }}>
+                <App />
+            </IconContext.Provider>
         </BrowserRouter>
     </Provider>
 )

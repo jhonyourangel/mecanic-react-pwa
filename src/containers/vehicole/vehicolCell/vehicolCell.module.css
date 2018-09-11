@@ -1,0 +1,54 @@
+.VehicolCell {
+    width: 80%;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    padding: 10px;
+    margin: 10px auto;
+    box-sizing: border-box;
+}
+
+@media (max-width: 375px) {
+    .VehicolCell {
+        width: 95%;
+    }
+}
+
+@media (max-width: 415px) {
+    .VehicolCell {
+        width: 90%;
+    }
+}
+
+@media (max-width: 411px) {
+    .VehicolCell {
+        width: 90%;
+    }
+}
+
+.InfoContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+}
+
+.PlateNumber {
+    flex-grow: 10;
+}
+
+.PlateNumber,
+.PlateNationality {
+    font-size: 1em;
+}
+
+.PlateNumber {
+    margin-right: 10px;
+}
+
+p {
+    color: #283D33;
+}
+
+.Column1 > a {
+    margin-left: 15px;
+}
