@@ -2,6 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Open Sans";
+  font-weight: lighter;
 }
 
 
@@ -9,4 +10,8 @@ body {
   width: 1.5em;
   height: 1.5em;
   margin-bottom: -5px;
+}
+
+p {
+  color: #283D33;
 }

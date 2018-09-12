@@ -1,27 +1,6 @@
-.VehicolCell {
-    width: 80%;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
-    padding: 10px;
-    margin: 10px auto;
-    box-sizing: border-box;
-}
-
-@media (max-width: 375px) {
-    .VehicolCell {
-        width: 95%;
-    }
-}
-
 @media (max-width: 415px) {
-    .VehicolCell {
-        width: 90%;
-    }
-}
-
-@media (max-width: 411px) {
-    .VehicolCell {
-        width: 90%;
+    p.PlateNumber {
+        width: 100px;
     }
 }
 
@@ -34,6 +13,7 @@
 
 .PlateNumber {
     flex-grow: 10;
+    font-weight: bold;
 }
 
 .PlateNumber,
@@ -46,9 +26,18 @@
 }
 
 p {
-    color: #283D33;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .Column1 > a {
     margin-left: 15px;
+}
+
+.Bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-around;
 }

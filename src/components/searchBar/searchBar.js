@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import css from './searchBar.module.css'
 
-import { MdAddCircle, MdSearch } from 'react-icons/md';
+import { MdSearch } from 'react-icons/md';
 
 class SearchBar extends Component {
 

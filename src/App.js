@@ -8,6 +8,8 @@ import Logout from './containers/enrollment/Logout/Logout'
 import * as actions from './store/actions';
 import Dashboard from './containers/Dashboard/Dashboard';
 import Vehicole from './containers/vehicole/vehicole'
+import Vehicol from './containers/vehicol/vehicol'
+
 import * as dexieVehicles from './store/indexdb/dexie-vehicle'
 import * as axiosVehicles from './network/axios-vehicle'
 
@@ -18,11 +20,12 @@ class App extends Component {
   
   fetchData = async () => {
     const res = await axiosVehicles.fetchVehiclesFromServer()
-    console.log("res is : ", res)
-    res.data.map( vehicle => dexieVehicles.addVehicle(vehicle))
+    const allPromisees = res.data.map( vehicle => dexieVehicles.addVehicle(vehicle))
+    Promise.all(allPromisees).then(console.log).catch(console.log)
   }
   
   render() {
+    // call fetch here only dev
     this.fetchData()
     let routes = (
       <Switch>
@@ -36,6 +39,7 @@ class App extends Component {
       routes = (
         <Switch>
           <Route path="/vehicole" component={Vehicole} />
+          <Route path="/vehicol/:plateNumber" component={Vehicol} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Vehicole} />
           <Redirect to="/" />

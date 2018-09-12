@@ -6,6 +6,15 @@ export {
 } from './auth';
 
 export {
+    newVehicle,
+    editVehicle,
+    deleteVehicle,
+    fetchVehicle,
+    fetchVehicles,
+
+} from './vehicle';
+
+export {
     newTransaction,
     editTransaction,
     deleteTransaction,
