@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import { Redirect } from 'react-router-dom'
+
 import css from './vehicol.module.css'
 import Aux from '../../hoc/Aux/Aux';
 import {MdArrowBack, MdSave, MdDelete} from 'react-icons/md'
@@ -28,10 +30,18 @@ class Vehicol extends Component {
 
     componentDidMount = async () => {
         await this.props.onFetchVehicle(this.state.vehicle.plateNumber).then(console.log).catch(console.log)
-        this.setState({vehicle: {
-            ...this.state.vehicle,
-            ...this.props.vehicle,
-        }})
+        // this.setState({vehicle: {
+        //     ...this.state.vehicle,
+        //     ...this.props.vehicle,
+        // }})
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        // return props.vehicle !== {} ? {vehicle : {...props.vehicle}} : state
+        if (props.vehicle.plateNumber === state.vehicle.plateNumber) {
+            console.log("props.vehicle:", props.vehicle)
+            return {vehicle: {...props.vehicle}}
+        }
     }
 
     goBack = async () => {
@@ -68,8 +78,11 @@ class Vehicol extends Component {
             </button> : 
             null
 
+        const redirect = v.sync === 'delete' ? <Redirect to="/vehicole" /> : null
+
         return (
             <Aux>
+                {redirect}
                     <button className={css.goBack} onClick={()=>this.goBack()}><MdArrowBack 
                         style={{fill: '#8E6E53'}}
                         /> BACK </button>

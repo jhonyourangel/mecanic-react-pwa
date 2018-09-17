@@ -58,7 +58,7 @@ const deleteVehicleStart = ( state, action ) => {
 };
 
 const deleteVehicleSuccess = ( state, action ) => {
-    const deleteVehicle = action.vehicleData
+    const deleteVehicle = {...action.vehicleData, sync: 'delete'}
     
     let transArray = [...state.vehicles]
     const index = transArray.findIndex(tran => tran._id === deleteVehicle._id)
@@ -69,8 +69,8 @@ const deleteVehicleSuccess = ( state, action ) => {
 
     return updateObject( state, {
         loading: false,
-        purchased: true,
         vehicles: transArray,
+        vehicle: deleteVehicle
     } );
 };
 

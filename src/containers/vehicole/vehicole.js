@@ -31,7 +31,9 @@ class Vehicole extends Component {
     }
 
     vehicleCells = () =>{
-        return this.props.vehicles.map( vehicle => {
+        return this.props.vehicles
+        .filter(item => item.sync !== 'delete')
+        .map( vehicle => {
             return <VehicolCell key={vehicle.plateNumber} vehicle={vehicle}></VehicolCell>
         })
     }

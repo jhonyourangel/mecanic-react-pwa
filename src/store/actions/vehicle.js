@@ -101,7 +101,7 @@ export const fetchVehicle = (plateNumber) => {
     return async dispatch => {
         dispatch(fetchVehicleStart());
         const vehicle = await dexieVehicle.getVehicle(plateNumber)
-        dispatch(fetchVehicleSuccess(vehicle));
+        dispatch(fetchVehicleSuccess(vehicle || {})) // just send an empty object, this will avoid crushing app
     };
 };
 
@@ -168,12 +168,10 @@ export const deleteVehicleStart = () => {
 };
 
 export const deleteVehicle = ( vehicleData ) => {
-    const editedVeh = {
-        ...vehicleData
-    }
+
     return dispatch => {
         dispatch( deleteVehicleStart() );
-        dexieVehicle.setDeleteSync()
+        dexieVehicle.setDeleteSync(vehicleData)
         .then( response => {
             console.log(response);
             dispatch( deleteVehicleSuccess( vehicleData.plateNumber, vehicleData ) );
