@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import css from './vehicol.module.css'
 import Aux from '../../hoc/Aux/Aux';
-import {MdArrowBack, MdSave} from 'react-icons/md'
+import {MdArrowBack, MdSave, MdDelete} from 'react-icons/md'
 import Rowcell from '../../components/rowcell/rowcell'
 import { connect } from 'react-redux'
 import axios from '../../network/axios'
@@ -22,7 +22,8 @@ class Vehicol extends Component {
             model: '',
             year: 0,
             vin: '',
-        }
+        },
+        deleteButton: this.props.match.params.plateNumber !== 'new-vehicle'
     }
 
     componentDidMount = async () => {
@@ -60,10 +61,25 @@ class Vehicol extends Component {
 
     render() {
         const v = this.state.vehicle
+        const deleteButton = this.state.deleteButton ? 
+            <button className={css.delete} onClick={()=>this.props.onDeleteVehicle(v)}>
+                <MdDelete 
+                    style={{fill: 'red'}}/> Delete 
+            </button> : 
+            null
+
         return (
             <Aux>
-                <button className={css.goBack} onClick={()=>this.goBack()}><MdArrowBack /> BACK </button>
-                <button className={css.goBack} onClick={()=>this.save()} disabled={ v.plateNumber === 'new-vehicle'}><MdSave /> Save </button>
+                    <button className={css.goBack} onClick={()=>this.goBack()}><MdArrowBack 
+                        style={{fill: '#8E6E53'}}
+                        /> BACK </button>
+                    <button className={css.save} 
+                        onClick={()=>this.save()} 
+                        disabled={ v.plateNumber === 'new-vehicle'}>
+                        <MdSave 
+                        style={{fill: v.plateNumber === 'new-vehicle' ? '#ccc' : '#496F5D'}}/> Save 
+                    </button>
+                    {deleteButton}
                 <p className={css.PlateNumber}><strong>RO - {v.plateNumber}</strong></p>
                 <section className={css.Vehicol}>
                     <Rowcell>

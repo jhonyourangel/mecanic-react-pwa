@@ -20,7 +20,17 @@
 
 .goBack {
     margin-left: 10px;
+    color: #8E6E53;
+}
+
+.save {
+    margin-left: 10px;
     color: #4C9F70;
+}
+
+.delete {
+    margin-left: 10px;
+    color: red;
 }
 
 fieldset {
@@ -48,4 +58,12 @@ input[type=date]
 .CellHeader > h1 {
     margin: 0 15px;
 }
+
+button:disabled {
+    color: #ccc;
+}
+
+
+
+
 
