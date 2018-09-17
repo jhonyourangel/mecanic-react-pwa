@@ -1,21 +1,15 @@
 .Vehicol {
-    width: 80%;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 3px #ccc;
+    width: 98%;
     padding: 10px;
     margin: 10px auto;
     box-sizing: border-box;
 }
 
-.VehicolHeader {
-    width: 99%;
-    margin: 10px auto;
-    box-sizing: border-box;
-
-    display: flex;
-    /* flex-direction: row; */
-    align-items: baseline;
-    justify-content: space-between;
+@media (min-width: 415px) {
+    .Vehicol {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .PlateNumber {
@@ -25,10 +19,33 @@
 }
 
 .goBack {
+    margin-left: 10px;
     color: #4C9F70;
 }
 
 fieldset {
     border: none;
+}
+
+label {
+    font-size: 0.9em;
+    color: #496F5D;
+}
+
+input[type=text], 
+input[type=date]
+{
+    width: 100%;
+    color: #496F5D;
+    font-size: 1em;
+}
+
+.CellHeader {
+    display: flex;
+    justify-content: space-between
+}
+
+.CellHeader > h1 {
+    margin: 0 15px;
 }
 

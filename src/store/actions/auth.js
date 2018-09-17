@@ -48,10 +48,8 @@ export const auth = (email, password, isSignup) => {
             password: password,
         };
 
-        let url = '../register';
-        if (!isSignup) {
-            url = '../login';
-        }
+        let url = isSignup ? '../login' : '../register'
+        
         axios.post(url, authData)
             .then(response => {
                 const expirationDate = new Date(Number(response.data.expiresIn));
@@ -65,10 +63,8 @@ export const auth = (email, password, isSignup) => {
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime())));
             })
             .catch(err => {
-                console.log(err.response)
-                err.response === undefined ?
-                    dispatch(authFail(err)) :
-                    dispatch(authFail(err.response.data.error))
+                console.log(err)
+                err.response === undefined ? dispatch(authFail(err)) : dispatch(authFail(err.response.data.error))
             });
     };
 };

@@ -42,7 +42,8 @@ const editVehicleSuccess = ( state, action ) => {
     return updateObject( state, {
         loading: false,
         purchased: true,
-        vehicles: transArray
+        vehicles: transArray,
+        vehicle: editVehicle
     } );
 };
 
@@ -69,7 +70,7 @@ const deleteVehicleSuccess = ( state, action ) => {
     return updateObject( state, {
         loading: false,
         purchased: true,
-        vehicles: transArray
+        vehicles: transArray,
     } );
 };
 

@@ -3,6 +3,7 @@ import css from './vehicole.module.css'
 import { MdAddCircle } from 'react-icons/md';
 
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router-dom'
 
 import axios from '../../network/axios'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
@@ -12,9 +13,12 @@ import VehicolCell from './vehicolCell/vehicolCell';
 import SearchBar from '../../components/searchBar/searchBar';
 
 class Vehicole extends Component {
+    state = {
+        redirect: null
+    }
     componentDidMount() {
         this.props.onFetchVehicles()
-        console.log(this.props);
+        this.redirect = null
     }
 
     searchValue = val => {
@@ -23,17 +27,18 @@ class Vehicole extends Component {
 
     addVehicle = e => {
         console.log("add vehicle")
+        this.setState({redirect: <Redirect to="/vehicol/new-vehicle" />})
     }
 
     vehicleCells = () =>{
         return this.props.vehicles.map( vehicle => {
-            console.log(vehicle.plateNumber)
-            return <VehicolCell key={vehicle.plateNumber} vehicle={vehicle} ></VehicolCell>
+            return <VehicolCell key={vehicle.plateNumber} vehicle={vehicle}></VehicolCell>
         })
     }
         render() {
             return (
                 <div>
+                {this.state.redirect}
                 <div className={css.ToolBar}>
                     <button onClick={e => this.addVehicle(e)}>
                         <MdAddCircle />
@@ -52,16 +57,12 @@ const mapStateToProps = state => {
         vehicles: state.vehicle.vehicles,
         loading: state.vehicle.loading,
         token: state.auth.token,
-        userId: state.auth.userId,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
         onFetchVehicles: () => dispatch(actions.fetchVehicles()),
-        onNewVehicle: (newVehi) => dispatch(actions.newVehicle(newVehi)),
-        onEditVehicle: (editVehi) => dispatch(actions.editVehicle(editVehi)),
-        onDeleteVehicle: (deleteVehi) => dispatch(actions.deleteVehicle(deleteVehi)),
     };
 };
 

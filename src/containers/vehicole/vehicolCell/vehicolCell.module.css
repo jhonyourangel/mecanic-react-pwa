@@ -1,6 +1,6 @@
 @media (max-width: 415px) {
     p.PlateNumber {
-        width: 100px;
+        
     }
 }
 
@@ -12,7 +12,8 @@
 }
 
 .PlateNumber {
-    flex-grow: 10;
+    /* flex-grow: 10; */
+    width: 100px;
     font-weight: bold;
 }
 

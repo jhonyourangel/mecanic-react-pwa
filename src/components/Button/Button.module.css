@@ -15,11 +15,6 @@
     padding-left: 0;
 }
 
-.Button:disabled {
-    color: #ccc;
-    cursor: not-allowed;
-}
-
 .Success {
     border: 1px solid #5C9210;
     color: #5C9210;
@@ -35,9 +30,20 @@
     color: #ffc107;
 }
 
-.SuccessRoundBorder.Button:first-of-type {
+.SuccessRoundBorder.Button {
     border: solid #ccc 1px;
     padding: 10px 70px;
     border-radius: 10px;
     color: #5C9210;
+}
+
+.SuccessRound.Button {
+    padding: 10px 70px;
+    border-radius: 10px;
+    color: #5C9210;
+}
+
+.Button:disabled {
+    color: #ccc;
+    cursor: not-allowed;
 }

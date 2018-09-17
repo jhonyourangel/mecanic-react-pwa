@@ -25,14 +25,15 @@ export const newVehicleStart = () => {
 export const newVehicle = ( vehicleData ) => {
     return dispatch => {
         dispatch( newVehicleStart() );
-        // axios.post( '/addvehicle', vehicleData)
-        //     .then( response => {
-        //         dispatch( newVehicleSuccess( response.data.name, vehicleData ) );
-        //     })
-        //     .catch( error => {
-        //         console.log("vehicle fail :", error)
-        //         dispatch( newVehicleFail( error ) );
-        //     } );
+        dexieVehicle.addVehicle(vehicleData)
+        .then( response => {
+            console.log(response);
+            dispatch( newVehicleSuccess( vehicleData.plateNumber, vehicleData ) );
+        })
+        .catch( error => {
+            console.log("vehicle fail :", error)
+            dispatch( newVehicleFail( error ) );
+        } );
     };
 };
 
@@ -106,7 +107,7 @@ export const fetchVehicle = (plateNumber) => {
 
 /****************************** EDIT */
 
-export const editvehicleSuccess = ( id, vehicleData ) => {
+export const editVehicleSuccess = ( id, vehicleData ) => {
     return {
         type: actionTypes.EDIT_VEHICLE_SUCCESS,
         vehicleId: id,
@@ -114,41 +115,38 @@ export const editvehicleSuccess = ( id, vehicleData ) => {
     };
 };
 
-export const editvehicleFail = ( error ) => {
+export const editVehicleFail = ( error ) => {
     return {
         type: actionTypes.EDIT_VEHICLE_FAIL,
         error: error
     };
 }
 
-export const editvehicleStart = () => {
+export const editVehicleStart = () => {
     return {
         type: actionTypes.EDIT_VEHICLE_START
     };
 };
 
-export const editvehicle = ( vehicleData ) => {
-    const editedVeh = {
-        ...vehicleData
-    }
-    delete editedVeh.id
+export const editVehicle = ( vehicleData ) => {
+
     return dispatch => {
-        dispatch( editvehicleStart() );
-        console.log(editedVeh, vehicleData)
-        // axios.put( '/editvehicle', editedVeh)
-        //     .then( response => {
-        //         dispatch( editvehicleSuccess( response.data.name, vehicleData ) );
-        //     })
-        //     .catch( error => {
-        //         console.log("vehicle fail :", error)
-        //         dispatch( newVehicleFail( error ) );
-        //     } );
+        dispatch( editVehicleStart() );
+        dexieVehicle.editVehicle(vehicleData)
+            .then( response => {
+                console.log(response);
+                dispatch( editVehicleSuccess( vehicleData.plateNumber, vehicleData ) );
+            })
+            .catch( error => {
+                console.log("vehicle fail :", error)
+                dispatch( editVehicleFail( error ) );
+            } );
     };
 };
 
 /********************* DELETE */
 
-export const deletevehicleSuccess = ( id, vehicleData ) => {
+export const deleteVehicleSuccess = ( id, vehicleData ) => {
     return {
         type: actionTypes.DELETE_VEHICLE_SUCCESS,
         vehicleId: id,
@@ -156,34 +154,34 @@ export const deletevehicleSuccess = ( id, vehicleData ) => {
     };
 };
 
-export const deletevehicleFail = ( error ) => {
+export const deleteVehicleFail = ( error ) => {
     return {
         type: actionTypes.DELETE_VEHICLE_FAIL,
         error: error
     };
 }
 
-export const deletevehicleStart = () => {
+export const deleteVehicleStart = () => {
     return {
         type: actionTypes.DELETE_VEHICLE_START
     };
 };
 
-export const deletevehicle = ( vehicleData ) => {
+export const deleteVehicle = ( vehicleData ) => {
     const editedVeh = {
         ...vehicleData
     }
     return dispatch => {
-        dispatch( deletevehicleStart() );
-
-        // axios.delete( '/deletevehicle?id=' + editedVeh._id)
-        //     .then( response => {
-        //         dispatch( deletevehicleSuccess( response.data.name, vehicleData ) );
-        //     })
-        //     .catch( error => {
-        //         console.log("vehicle fail :", error)
-        //         dispatch( newVehicleFail( error ) );
-        //     } );
+        dispatch( deleteVehicleStart() );
+        dexieVehicle.setDeleteSync()
+        .then( response => {
+            console.log(response);
+            dispatch( deleteVehicleSuccess( vehicleData.plateNumber, vehicleData ) );
+        })
+        .catch( error => {
+            console.log("vehicle fail :", error)
+            dispatch( deleteVehicleFail( error ) );
+        } );
     };
 };
 

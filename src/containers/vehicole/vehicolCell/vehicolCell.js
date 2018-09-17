@@ -30,7 +30,7 @@ const VehicoleCell = (props) => {
                     </div>
                     <div className={css.Column2}>
                         <p className={css.BrandModelYear}>{brand} {model} {year}</p>
-                        <p className={css.Vin}>{vin}</p>
+                        <p className={css.Vin}>{vin || 'fara sasiu'}</p>
                         <p className={css.NextMaintenance}>Urm. Intre. : 230 000km</p>
                     </div>
                 </div>

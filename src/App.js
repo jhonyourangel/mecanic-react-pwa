@@ -10,23 +10,13 @@ import Dashboard from './containers/Dashboard/Dashboard';
 import Vehicole from './containers/vehicole/vehicole'
 import Vehicol from './containers/vehicol/vehicol'
 
-import * as dexieVehicles from './store/indexdb/dexie-vehicle'
-import * as axiosVehicles from './network/axios-vehicle'
-
 class App extends Component {
   componentDidMount() {
     this.props.onTryAutoSignup()
   }
   
-  fetchData = async () => {
-    const res = await axiosVehicles.fetchVehiclesFromServer()
-    const allPromisees = res.data.map( vehicle => dexieVehicles.addVehicle(vehicle))
-    Promise.all(allPromisees).then(console.log).catch(console.log)
-  }
-  
   render() {
     // call fetch here only dev
-    this.fetchData()
     let routes = (
       <Switch>
         <Route path="/Auth" component={Auth}/>
