@@ -84,7 +84,7 @@ export const fetchVehicleSuccess = ( vehicle ) => {
 };
 
 export const fetchVehicleFail = ( error ) => {
-    return {
+    return {  
         type: actionTypes.FETCH_VEHICLE_FAIL,
         error: error
     };

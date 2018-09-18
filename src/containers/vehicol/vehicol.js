@@ -50,7 +50,11 @@ class Vehicol extends Component {
 
     save = async () => {
         await this.props.onFetchVehicle(this.state.vehicle.plateNumber).then(console.log).catch(console.log)
-        this.props.vehicle === undefined ? 
+
+        console.log('this.props.vehicle:', this.props.vehicle);
+        
+
+        this.props.vehicle.plateNumber === undefined ? 
             this.props.onNewVehicle({...this.state.vehicle}) :
             this.props.onEditVehicle({...this.state.vehicle})
 
