@@ -30,14 +30,9 @@ class Vehicol extends Component {
 
     componentDidMount = async () => {
         await this.props.onFetchVehicle(this.state.vehicle.plateNumber).then(console.log).catch(console.log)
-        // this.setState({vehicle: {
-        //     ...this.state.vehicle,
-        //     ...this.props.vehicle,
-        // }})
     }
 
     static getDerivedStateFromProps(props, state) {
-        // return props.vehicle !== {} ? {vehicle : {...props.vehicle}} : state
         if (props.vehicle.plateNumber === state.vehicle.plateNumber) {
             console.log("props.vehicle:", props.vehicle)
             return {vehicle: {...props.vehicle}}
@@ -49,18 +44,10 @@ class Vehicol extends Component {
     }
 
     save = async () => {
-        await this.props.onFetchVehicle(this.state.vehicle.plateNumber).then(console.log).catch(console.log)
-
-        console.log('this.props.vehicle:', this.props.vehicle);
-        
-
+        await this.props.onFetchVehicle(this.state.vehicle.plateNumber).then(console.log).catch(console.log)      
         this.props.vehicle.plateNumber === undefined ? 
             this.props.onNewVehicle({...this.state.vehicle}) :
             this.props.onEditVehicle({...this.state.vehicle})
-
-        console.log(this.state.vehicle.plateNumber, this.props.vehicle)
-        
-        // 
     }
 
     inputChange = async e => {
@@ -98,6 +85,7 @@ class Vehicol extends Component {
                     </button>
                     {deleteButton}
                 <p className={css.PlateNumber}><strong>RO - {v.plateNumber}</strong></p>
+                
                 <section className={css.Vehicol}>
                     <Rowcell>
                         <header className={css.CellHeader}>
