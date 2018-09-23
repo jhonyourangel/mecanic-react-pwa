@@ -25,7 +25,8 @@ class Vehicol extends Component {
             year: 0,
             vin: '',
         },
-        deleteButton: this.props.match.params.plateNumber !== 'new-vehicle'
+        deleteButton: this.props.match.params.plateNumber !== 'new-vehicle',
+        focusInput: null
     }
 
     componentDidMount = async () => {
@@ -33,10 +34,11 @@ class Vehicol extends Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        if (props.vehicle.plateNumber === state.vehicle.plateNumber) {
+        if (props.vehicle.plateNumber === state.vehicle.plateNumber && state.focusInput === null) {
             console.log("props.vehicle:", props.vehicle)
             return {vehicle: {...props.vehicle}}
         }
+        return state
     }
 
     goBack = async () => {
@@ -44,10 +46,32 @@ class Vehicol extends Component {
     }
 
     save = async () => {
-        await this.props.onFetchVehicle(this.state.vehicle.plateNumber).then(console.log).catch(console.log)      
-        this.props.vehicle.plateNumber === undefined ? 
-            this.props.onNewVehicle({...this.state.vehicle}) :
-            this.props.onEditVehicle({...this.state.vehicle})
+        try {
+            const plateNumber = this.props.match.params.plateNumber
+            const _ = await this.props.onFetchVehicle(plateNumber).then(console.log).catch(console.log)
+            console.log(this.props.vehicle)
+
+            if (this.props.vehicle.plateNumber === undefined) 
+            {this.props.onNewVehicle({...this.state.vehicle})} 
+            else {this.props.onEditVehicle({...this.state.vehicle})}
+
+            if ( plateNumber !== this.state.vehicle.plateNumber ) {
+                this.goBack()
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    focusChange = async e => {
+        console.log("focusChange:", e.target.name)
+        this.setState({focusInput: e.target.name})
+    }
+
+    /** just in case in the future you have an unexpected bug, check here first */
+    blurChange = async e => {
+        // not sure if null must be set it again
+        // this.setState({focusInput: null})
     }
 
     inputChange = async e => {
@@ -85,7 +109,7 @@ class Vehicol extends Component {
                     </button>
                     {deleteButton}
                 <p className={css.PlateNumber}><strong>RO - {v.plateNumber}</strong></p>
-                
+
                 <section className={css.Vehicol}>
                     <Rowcell>
                         <header className={css.CellHeader}>
@@ -93,39 +117,39 @@ class Vehicol extends Component {
                         </header>
                         <fieldset>
                             <label htmlFor="owner">Proprietar: </label>
-                            <input type="text" name="owner" placeholder="" onChange={e => this.inputChange(e)} value={v.owner}/>
+                            <input type="text" name="owner" placeholder="" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.owner}/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="phoneNumber">Nr De Telefon: </label>
-                            <input type="text" name="phoneNumber" placeholder="" onChange={e => this.inputChange(e)} value={v.phoneNumber}/>
+                            <input type="text" name="phoneNumber" placeholder="" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.phoneNumber}/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="email">Email: </label>
-                            <input type="text" name="email" placeholder="" onChange={e => this.inputChange(e)} value={v.email}/>
+                            <input type="text" name="email" placeholder="" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.email}/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="plateNumber">Plate Number: </label>
-                            <input type="text" name="plateNumber" placeholder="" onChange={e => this.inputChange(e)} value={v.plateNumber}/>
+                            <input type="text" name="plateNumber" placeholder="" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.plateNumber}/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="brand">Brand: </label>
-                            <input type="text" name="brand" placeholder="" onChange={e => this.inputChange(e)} value={v.brand}/>
+                            <input type="text" name="brand" placeholder="" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.brand}/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="model">Model: </label>
-                            <input type="text" name="model" placeholder="" onChange={e => this.inputChange(e)} value={v.model}/>
+                            <input type="text" name="model" placeholder="" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.model}/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="year">An Productie: </label>
-                            <input type="text" name="year" placeholder="" onChange={e => this.inputChange(e)} value={v.year}/>
+                            <input type="text" name="year" placeholder="" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.year}/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="carKm">Km Bord: </label>
-                            <input type="text" name="carKm" placeholder="" onChange={e => this.inputChange(e)} value={v.carKm}/>
+                            <input type="text" name="carKm" placeholder="" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.carKm}/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="vin">Serie Sasiu: </label>
-                            <input type="text" name="vin" placeholder="introdu o serie de sasiu" onChange={e => this.inputChange(e)} value={v.vin}/>
+                            <input type="text" name="vin" placeholder="introdu o serie de sasiu" onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value={v.vin}/>
                         </fieldset>
                     </Rowcell>
 
@@ -137,11 +161,11 @@ class Vehicol extends Component {
                         </header>
                         <fieldset>
                             <label htmlFor="mDate">Data  </label>
-                            <input type="date" name="mDate"  onChange={e => this.inputChange(e)} value='2018-03-15'/>
+                            <input type="date" name="mDate"  onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value='2018-03-15'/>
                         </fieldset>
                         <fieldset>
                             <label htmlFor="mKm">Km in bord  </label>
-                            <input type="text" name="mKm"  onChange={e => this.inputChange(e)} value='230000'/>
+                            <input type="text" name="mKm"  onFocus={e=> this.focusChange(e)} onBlur={e => this.blurChange(e)} onChange={e => this.inputChange(e)} value='230000'/>
                         </fieldset>
                     </Rowcell>
                 </section>
