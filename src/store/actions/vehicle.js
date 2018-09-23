@@ -68,9 +68,13 @@ export const fetchVehiclesStart = () => {
 export const fetchVehicles = () => {
     
     return async dispatch => {
-        dispatch(fetchVehiclesStart());
-        const vehicles = await dexieVehicle.getAllVehicles()
-        dispatch(fetchVehiclesSuccess(vehicles));
+        try {     
+            dispatch(fetchVehiclesStart());
+            const vehicles = await dexieVehicle.getAllVehicles()
+            dispatch(fetchVehiclesSuccess(vehicles));
+        } catch (error) {
+            console.log(error)
+        }
     };
 };
 
@@ -97,11 +101,15 @@ export const fetchVehicleStart = () => {
 };
 
 export const fetchVehicle = (plateNumber) => {
-    
+    console.log('fetchVehicle:', plateNumber)
     return async dispatch => {
-        dispatch(fetchVehicleStart());
-        const vehicle = await dexieVehicle.getVehicle(plateNumber)
-        dispatch(fetchVehicleSuccess(vehicle || {})) // just send an empty object, this will avoid crushing app
+        try {
+            dispatch(fetchVehicleStart());
+            const vehicle = await dexieVehicle.getVehicle(plateNumber)
+            dispatch(fetchVehicleSuccess(vehicle || {})) // just send an empty object, this will avoid crushing app
+        } catch (error) {
+            console.log(error);   
+        }
     };
 };
 
