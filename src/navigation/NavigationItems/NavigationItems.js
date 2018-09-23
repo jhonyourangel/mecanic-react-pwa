@@ -10,15 +10,15 @@ const NavigationItems = ( props ) => {
             <NavigationItem link="/vehicole">Vehicole</NavigationItem>
             <NavigationItem link="/intretineri">Intretineri</NavigationItem>
             <NavigationItem link="/produse">Produse</NavigationItem>
+            <NavigationItem link="/logout">Logout</NavigationItem>
         </Aux>
     )
     return (
     <ul className={classes.NavigationItems}>
         <NavigationItem link="/" exact>Bord</NavigationItem>
-        {props.isAuthenticated ? navigationItems : null}
-        {!props.isAuthenticated
-            ? <NavigationItem link="/auth">Authenticate</NavigationItem>
-            : <NavigationItem link="/logout">Logout</NavigationItem>}
+        {props.isAuthenticated ? 
+            navigationItems : 
+            <NavigationItem link="/auth">Authenticate</NavigationItem>}
     </ul>
 )}
 
