@@ -12,7 +12,7 @@ const sideDrawer = ( props ) => {
         attachedCss = [css.SideDrawer, css.Open];
     }
     return (
-        <Aux>
+        <Aux> 
             <Backdrop show={props.open} clicked={props.closed} />
             <div className={attachedCss.join(' ')} onClick={props.closed}>
                 <div className={css.Logo}>

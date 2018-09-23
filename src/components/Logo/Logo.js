@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Logo.module.css';
 
-const logo = (props) => (
+const Logo = (props) => (
     <div className={classes.Logo} style={{height: props.height}}>
         <svg xmlns="http://www.w3.org/2000/svg" 
         version="1.1" 
@@ -46,4 +46,4 @@ const logo = (props) => (
     </div>
 );
 
-export default logo;
+export default Logo;
