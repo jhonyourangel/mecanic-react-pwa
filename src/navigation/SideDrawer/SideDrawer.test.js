@@ -17,4 +17,6 @@ describe('<SideDrawer />', ()=>{
         expect(wrapper.find('Logo')).not.toBeUndefined()
         expect(wrapper.find('Logo')).toHaveLength(1)
     })
+
+    
 })
