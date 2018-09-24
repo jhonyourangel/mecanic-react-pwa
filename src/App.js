@@ -6,7 +6,6 @@ import Layout from './hoc/Layout/Layout';
 import Auth from './containers/enrollment/Auth/Auth';
 import Logout from './containers/enrollment/Logout/Logout'
 import * as actions from './store/actions';
-import Dashboard from './containers/Dashboard/Dashboard';
 import Vehicole from './containers/vehicole/vehicole'
 import Vehicol from './containers/vehicol/vehicol'
 
@@ -20,8 +19,8 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route path="/Auth" component={Auth}/>
-        <Route path="/" component={Dashboard}/>
-        <Redirect to="/" />
+        <Route path="/" component={Vehicole}/>
+        <Redirect to="/Auth" />
       </Switch>
     )
 
