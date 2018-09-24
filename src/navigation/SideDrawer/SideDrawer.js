@@ -1,12 +1,11 @@
 import React from 'react';
-
 import Logo from '../../components/Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import css from './SideDrawer.module.css';
 import Backdrop from '../../components/Backdrop/Backdrop';
 import Aux from '../../hoc/Aux/Aux';
 
-const sideDrawer = ( props ) => {
+const SideDrawer = ( props ) => {
     let attachedCss = [css.SideDrawer, css.Close];
     if (props.open) {
         attachedCss = [css.SideDrawer, css.Open];
@@ -26,4 +25,4 @@ const sideDrawer = ( props ) => {
     );
 };
 
-export default sideDrawer;
+export default SideDrawer;

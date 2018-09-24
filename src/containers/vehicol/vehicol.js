@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 import css from './vehicol.module.css'
 import Aux from '../../hoc/Aux/Aux';
@@ -39,10 +39,6 @@ class Vehicol extends Component {
             return {vehicle: {...props.vehicle}}
         }
         return state
-    }
-
-    goBack = async () => {
-        this.props.history.goBack();
     }
 
     save = async () => {
@@ -98,9 +94,14 @@ class Vehicol extends Component {
         return (
             <Aux>
                 {redirect}
-                    <button className={css.goBack} onClick={()=>this.goBack()}><MdArrowBack 
+                    <Link 
+                    to="/vehicole"
+                    className={css.goBack} 
+                    onClick={()=>this.goBack()}
+                    >
+                    <MdArrowBack 
                         style={{fill: '#8E6E53'}}
-                        /> BACK </button>
+                        /> Vehicole </Link>
                     <button className={css.save} 
                         onClick={()=>this.save()} 
                         disabled={ v.plateNumber === 'new-vehicle'}>

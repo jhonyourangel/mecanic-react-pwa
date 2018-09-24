@@ -7,7 +7,7 @@ import Toolbar from '../../navigation/Toolbar/Toolbar';
 import SideDrawer from '../../navigation/SideDrawer/SideDrawer';
 import SyncBar from '../../containers/syncBar/syncBar';
 
-class Layout extends Component {
+export class Layout extends Component {
     state = {
         showSideDrawer: false
     }
