@@ -9,7 +9,7 @@ export const Toolbar = ( props ) => (
     <Aux>
         <header className={css.Toolbar}>
             <DrawerToggle clicked={props.drawerToggleClicked} /> 
-            <h2>Auto SOFPET <span className={css.alpha}>(alpha)</span></h2>       
+            <h2 className={css.ProjName}>Auto SOFPET <span className={css.alpha}>(alpha)</span></h2>       
         </header>
         { props.loading ? <div className={css.Loading}> </div> : null }
     </Aux>
