@@ -25,7 +25,7 @@ class Vehicole extends Component {
         console.log(val)
     }
 
-    addVehicle = e => {
+    addVehicle = () => {
         console.log("add vehicle")
         this.setState({redirect: <Redirect to="/vehicol/new-vehicle" />})
     }
