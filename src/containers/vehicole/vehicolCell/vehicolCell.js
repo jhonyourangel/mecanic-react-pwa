@@ -1,6 +1,6 @@
 import React from 'react'
 import css from './vehicolCell.module.css'
-import { MdPhone, MdEmail, MdTextsms, MdMessage, MdWhatshot} from 'react-icons/md';
+import { MdPhone, MdEmail, MdTextsms, MdMessage } from 'react-icons/md';
 import { Router, Link } from 'react-router-dom'
 import Rowcell from '../../../components/rowcell/rowcell';
 
