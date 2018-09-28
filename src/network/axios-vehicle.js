@@ -6,6 +6,10 @@ export const fetchVehiclesFromServer = async () => {
     return await axios.get(VEHICLE_URL)
 }
 
+export const getVehicle = async plateNumber => {
+    return await axios.get(`${VEHICLE_URL}/${plateNumber}`)
+}
+
 export const pushNewVehicleToServer = async (vehicle) => {
     return await axios.post(VEHICLE_URL, vehicle)
 }

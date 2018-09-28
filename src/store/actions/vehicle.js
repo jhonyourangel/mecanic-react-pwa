@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import * as dexieVehicle from '../indexdb/dexie-vehicle'
+import * as axiosVehicle from '../../network/axios-vehicle';
 
 export const newVehicleSuccess = ( id, vehicleData ) => {
     return {
@@ -23,17 +23,14 @@ export const newVehicleStart = () => {
 };
 
 export const newVehicle = ( vehicleData ) => {
-    return dispatch => {
+    return async dispatch => {
         dispatch( newVehicleStart() );
-        dexieVehicle.addVehicle(vehicleData)
-        .then( response => {
-            console.log(response);
-            dispatch( newVehicleSuccess( vehicleData.plateNumber, vehicleData ) );
-        })
-        .catch( error => {
-            console.log("vehicle fail :", error)
+        try {
+            const res = await axiosVehicle.pushNewVehicleToServer(vehicleData)
+            dispatch( newVehicleSuccess( res.data.plateNumber, res.data ) );
+        } catch (error) {
             dispatch( newVehicleFail( error ) );
-        } );
+        }        
     };
 };
 
@@ -68,12 +65,12 @@ export const fetchVehiclesStart = () => {
 export const fetchVehicles = () => {
     
     return async dispatch => {
+        dispatch(fetchVehiclesStart());
         try {     
-            dispatch(fetchVehiclesStart());
-            const vehicles = await dexieVehicle.getAllVehicles()
-            dispatch(fetchVehiclesSuccess(vehicles));
+            const res = await axiosVehicle.fetchVehiclesFromServer()
+            dispatch(fetchVehiclesSuccess(res.data));
         } catch (error) {
-            console.log(error)
+            fetchVehiclesFail(error)
         }
     };
 };
@@ -101,14 +98,13 @@ export const fetchVehicleStart = () => {
 };
 
 export const fetchVehicle = (plateNumber) => {
-    console.log('fetchVehicle:', plateNumber)
     return async dispatch => {
         try {
             dispatch(fetchVehicleStart());
-            const vehicle = await dexieVehicle.getVehicle(plateNumber)
-            dispatch(fetchVehicleSuccess(vehicle || {})) // just send an empty object, this will avoid crushing app
+            const res = await axiosVehicle.getVehicle(plateNumber)
+            dispatch(fetchVehicleSuccess(res.data[0] || {})) // just send an empty object, this will avoid crushing app
         } catch (error) {
-            console.log(error);   
+            fetchVehicleFail(error)
         }
     };
 };
@@ -137,18 +133,14 @@ export const editVehicleStart = () => {
 };
 
 export const editVehicle = ( vehicleData ) => {
-
-    return dispatch => {
+    return async dispatch => {
         dispatch( editVehicleStart() );
-        dexieVehicle.editVehicle(vehicleData)
-            .then( response => {
-                console.log(response);
-                dispatch( editVehicleSuccess( vehicleData.plateNumber, vehicleData ) );
-            })
-            .catch( error => {
-                console.log("vehicle fail :", error)
-                dispatch( editVehicleFail( error ) );
-            } );
+        try {
+            const res = await axiosVehicle.editVehicle(vehicleData)
+            dispatch( editVehicleSuccess( res.data.plateNumber, res.data ) );
+        } catch (error) {
+            dispatch( editVehicleFail( error ) );
+        }
     };
 };
 
@@ -177,17 +169,14 @@ export const deleteVehicleStart = () => {
 
 export const deleteVehicle = ( vehicleData ) => {
 
-    return dispatch => {
+    return async dispatch => {
         dispatch( deleteVehicleStart() );
-        dexieVehicle.setDeleteSync(vehicleData)
-        .then( response => {
-            console.log(response);
-            dispatch( deleteVehicleSuccess( vehicleData.plateNumber, vehicleData ) );
-        })
-        .catch( error => {
-            console.log("vehicle fail :", error)
-            dispatch( deleteVehicleFail( error ) );
-        } );
+        try {
+            const res = await axiosVehicle.deleteVehicle(vehicleData)
+            dispatch( deleteVehicleSuccess( res.data.plateNumber, res.data ) );
+        } catch (error) {
+            dispatch( deleteVehicleFail( error ));
+        }
     };
 };
 
