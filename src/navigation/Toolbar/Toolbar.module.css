@@ -24,10 +24,11 @@
 
 .Loading {
     background-color: red;
-    height: 58px;
-    width: 100px;
+    height: 2px;
+    width: 100%;
     margin: 0 auto;
-    position: relative;
+    top: 56px;
+    position: fixed;
     animation-name: example2;
     animation-duration: 3s;
     animation-iteration-count: infinite;

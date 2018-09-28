@@ -30,10 +30,12 @@ class Vehicol extends Component {
     }
 
     componentDidMount = async () => {
-        await this.props.onFetchVehicle(this.state.vehicle.plateNumber).then(console.log).catch(console.log)
+        await this.props.onFetchVehicle(this.props.match.params.plateNumber).then(console.log).catch(console.log)
+        this.redirectToVehicles = null
     }
 
     static getDerivedStateFromProps(props, state) {
+        console.log('called')
         if (props.vehicle.plateNumber === state.vehicle.plateNumber && state.focusInput === null) {
             console.log("props.vehicle:", props.vehicle)
             return {vehicle: {...props.vehicle}}
@@ -43,17 +45,14 @@ class Vehicol extends Component {
 
     save = async () => {
         try {
-            const plateNumber = this.props.match.params.plateNumber
-            const _ = await this.props.onFetchVehicle(plateNumber).then(console.log).catch(console.log)
-            console.log(this.props.vehicle)
 
-            if (this.props.vehicle.plateNumber === undefined) 
+            if (this.props.vehicle._id === undefined) 
             {this.props.onNewVehicle({...this.state.vehicle})} 
             else {this.props.onEditVehicle({...this.state.vehicle})}
 
-            if ( plateNumber !== this.state.vehicle.plateNumber ) {
-                this.goBack()
-            }
+            // save and go to vehicles
+            this.redirectToVehicles = (<Redirect to="/vehicole" />)
+            
         } catch (error) {
             console.log(error)
         }
@@ -70,6 +69,11 @@ class Vehicol extends Component {
         // this.setState({focusInput: null})
     }
 
+    delete = (v) => {
+        console.log(v)
+        this.props.onDeleteVehicle(v)
+    }
+
     inputChange = async e => {
         this.setState({
             vehicle: {
@@ -83,7 +87,7 @@ class Vehicol extends Component {
     render() {
         const v = this.state.vehicle
         const deleteButton = this.state.deleteButton ? 
-            <button className={css.delete} onClick={()=>this.props.onDeleteVehicle(v)}>
+            <button className={css.delete} onClick={()=>this.delete(v)}>
                 <MdDelete 
                     style={{fill: 'red'}}/> Delete 
             </button> : 
@@ -93,6 +97,7 @@ class Vehicol extends Component {
 
         return (
             <Aux>
+                {this.redirectToVehicles}
                 {redirect}
                     <Link 
                     to="/vehicole"

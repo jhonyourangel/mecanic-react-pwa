@@ -18,7 +18,6 @@ class Vehicole extends Component {
     }
     componentDidMount() {
         this.props.onFetchVehicles()
-        this.redirect = null
     }
 
     searchValue = val => {
@@ -31,6 +30,8 @@ class Vehicole extends Component {
     }
 
     vehicleCells = () =>{
+        if (this.props.vehicles === undefined) {return null}
+        console.log('this.props.vehicle:', this.props.vehicles)
         return this.props.vehicles
         .filter(item => item.sync !== 'delete')
         .map( vehicle => {
@@ -38,6 +39,7 @@ class Vehicole extends Component {
         })
     }
         render() {
+            console.log(this.props.vehicles)
             return (
                 <div>
                 {this.state.redirect}

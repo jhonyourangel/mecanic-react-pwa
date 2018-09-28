@@ -5,7 +5,6 @@ import Aux from '../Aux/Aux';
 import classes from './Layout.module.css';
 import Toolbar from '../../navigation/Toolbar/Toolbar';
 import SideDrawer from '../../navigation/SideDrawer/SideDrawer';
-import SyncBar from '../../containers/syncBar/syncBar';
 
 export class Layout extends Component {
     state = {
@@ -35,7 +34,6 @@ export class Layout extends Component {
                 <main className={classes.Content}>
                     {this.props.children}
                 </main>
-                <SyncBar></SyncBar>
             </Aux>
         )
     }

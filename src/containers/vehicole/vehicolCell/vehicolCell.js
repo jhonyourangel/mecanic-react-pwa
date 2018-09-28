@@ -6,17 +6,19 @@ import Rowcell from '../../../components/rowcell/rowcell';
 
 // contact_phone
 const VehicoleCell = (props) => {
-    const {plateNumber, 
-    plateNationality, 
-    carKm, 
-    owner, 
-    email, 
-    phoneNumber, 
-    brand, 
-    model, 
-    year,
-    vin,
-    clicked} = props.vehicle
+    const {
+            plateNumber, 
+            plateNationality, 
+            carKm, 
+            owner, 
+            email, 
+            phoneNumber, 
+            brand, 
+            model, 
+            year,
+            vin,
+            clicked
+        } = props.vehicle
 
     
    return (

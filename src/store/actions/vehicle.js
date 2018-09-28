@@ -67,8 +67,8 @@ export const fetchVehicles = () => {
     return async dispatch => {
         dispatch(fetchVehiclesStart());
         try {     
-            const vehicles = await axiosVehicle.fetchVehiclesFromServer()
-            dispatch(fetchVehiclesSuccess(vehicles));
+            const res = await axiosVehicle.fetchVehiclesFromServer()
+            dispatch(fetchVehiclesSuccess(res.data));
         } catch (error) {
             fetchVehiclesFail(error)
         }
@@ -101,8 +101,8 @@ export const fetchVehicle = (plateNumber) => {
     return async dispatch => {
         try {
             dispatch(fetchVehicleStart());
-            const vehicle = await axiosVehicle.getVehicle(plateNumber)
-            dispatch(fetchVehicleSuccess(vehicle || {})) // just send an empty object, this will avoid crushing app
+            const res = await axiosVehicle.getVehicle(plateNumber)
+            dispatch(fetchVehicleSuccess(res.data[0] || {})) // just send an empty object, this will avoid crushing app
         } catch (error) {
             fetchVehicleFail(error)
         }
