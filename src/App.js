@@ -8,7 +8,9 @@ import Auth from './containers/enrollment/Auth/Auth';
 import Logout from './containers/enrollment/Logout/Logout'
 import * as actions from './store/actions';
 import Vehicole from './containers/vehicole/vehicole'
-import Vehicol from './containers/vehicol/vehicol'
+import Vehicol from './containers/vehicole/vehicol/vehicol'
+import Intretineri from './containers/intretineri/intretineri'
+import Produse from './containers/produse/produse'
 
 class App extends Component {
   componentDidMount() {
@@ -32,6 +34,8 @@ class App extends Component {
         <Switch>
           <Route path="/vehicole" component={Vehicole} />
           <Route path="/vehicol/:plateNumber" component={Vehicol} />
+          <Route path="/intretineri" component={Intretineri} />
+          <Route path="/produse" component={Produse} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Vehicole} />
           <Redirect to="/" />
