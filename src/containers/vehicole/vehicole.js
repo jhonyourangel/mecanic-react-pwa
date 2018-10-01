@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import css from './vehicole.module.css'
-import { MdAddCircle } from 'react-icons/md';
+// import css from './vehicole.module.css'
 
 import { connect } from 'react-redux'
-import { Redirect, Link } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import axios from '../../network/axios'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
@@ -16,11 +15,11 @@ class Vehicole extends Component {
     state = {
         searchText: ''
     }
+    
     componentDidMount() {
         this.props.onFetchVehicles()
         this.redirect = (this.props.token === undefined) ? <Redirect to="/auth" /> : null
         console.log("redirect:",this.redirect);
-        
     }
 
     searchValue = val => {

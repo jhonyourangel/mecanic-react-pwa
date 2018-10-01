@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
-import css from './intretineri.module.css'
-import { MdAddCircle } from 'react-icons/md';
-
+// import css from './intretineri.module.css'
 import { connect } from 'react-redux'
 
 import axios from '../../network/axios'
@@ -16,7 +14,7 @@ class Intretineri extends Component {
         return (
             <div>
                 <SearchBar 
-                to="/ intretineri/new-intretinere" 
+                to="/intretineri/new-intretinere" 
                 onChange={val => this.searchValue(val)}></SearchBar>
             </div>
         )
@@ -26,14 +24,13 @@ class Intretineri extends Component {
 const mapStateToProps = state => {
     return {
         vehicles: state.vehicle.vehicles,
-        loading: state.vehicle.loading,
         token: state.auth.token,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchVehicles: () => dispatch(actions.fetchVehicles()),
+        onFetchMaintanance: () => dispatch(actions.fetchMaintanance()),
     };
 };
 
