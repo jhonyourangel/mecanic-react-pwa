@@ -30,7 +30,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchMaintanance: () => dispatch(actions.fetchMaintanance()),
+        onFetchVehicles: () => dispatch(actions.fetchVehicles()),
     };
 };
 
