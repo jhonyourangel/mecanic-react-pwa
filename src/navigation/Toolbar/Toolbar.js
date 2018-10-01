@@ -10,6 +10,8 @@ export const Toolbar = ( {
     drawerToggleClicked
     } ) => (
     <Aux>
+        {console.log('loading:', loading)}
+        }
         { loading ? <div className={css.Loading}> </div> : null }
         <header className={css.Toolbar}>
             <DrawerToggle clicked={drawerToggleClicked} /> 
@@ -20,7 +22,7 @@ export const Toolbar = ( {
 
 const mapStateToProps = state => {
     return {
-        loading: state.transaction.loading
+        loading: state.vehicle.loading
     }
 }
 
