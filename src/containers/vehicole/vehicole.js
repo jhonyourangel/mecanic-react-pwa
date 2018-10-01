@@ -14,7 +14,8 @@ import SearchBar from '../../components/searchBar/searchBar';
 
 class Vehicole extends Component {
     state = {
-        redirect: null
+        redirect: null,
+        searchText: ''
     }
     componentDidMount() {
         this.props.onFetchVehicles()
@@ -22,6 +23,21 @@ class Vehicole extends Component {
 
     searchValue = val => {
         console.log(val)
+        this.setState({searchText: val})
+        // this.forceUpdate()
+    }
+
+    searchCB = (item) => {
+        const st = this.state.searchText 
+        if (st === '') {
+            return true
+        }
+
+        const stREG = new RegExp(st, 'gi')
+        console.log(st, stREG, item.plateNumber)
+
+        return  stREG.test(item.plateNumber) || 
+        stREG.test(item.vin)
     }
 
     addVehicle = () => {
@@ -31,15 +47,16 @@ class Vehicole extends Component {
 
     vehicleCells = () =>{
         if (this.props.vehicles === undefined) {return null}
-        console.log('this.props.vehicle:', this.props.vehicles)
+        // console.log('this.props.vehicle:', this.props.vehicles)
+        console.log('generate vehicles while searching');
+        
         return this.props.vehicles
-        .filter(item => item.sync !== 'delete')
+        .filter(this.searchCB)
         .map( vehicle => {
             return <VehicolCell key={vehicle.plateNumber} vehicle={vehicle}></VehicolCell>
         })
     }
         render() {
-            console.log(this.props.vehicles)
             return (
                 <div>
                 {this.state.redirect}
