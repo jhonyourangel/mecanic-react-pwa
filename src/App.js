@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import { connect } from 'react-redux';
 
 import Layout from './hoc/Layout/Layout';
@@ -11,6 +12,8 @@ import Vehicol from './containers/vehicol/vehicol'
 
 class App extends Component {
   componentDidMount() {
+    ReactGA.initialize('UA-126700247-1')
+    this.props.history.listen(location => ReactGA.pageview(location.pathname));
     this.props.onTryAutoSignup()
   }
   
