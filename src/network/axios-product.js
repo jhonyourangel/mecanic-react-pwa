@@ -6,6 +6,10 @@ export const fetchProductsFromServer = async () => {
     return await axios.get(PRODUCT_URL)
 }
 
+export const getProduct = async identifier => {
+    return await axios.get(`${PRODUCT_URL}/${identifier}`)
+}
+
 export const pushNewProductToServer = async (Product) => {
     return await axios.post(PRODUCT_URL, Product)
 }

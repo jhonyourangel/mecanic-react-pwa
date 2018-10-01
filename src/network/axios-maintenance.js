@@ -4,6 +4,10 @@ export const fetchMaintenancesFromServer = async () => {
     return await axios.get(MAINTENANCE_URL)
 }
 
+export const getMaintenance = async identifier => {
+    return await axios.get(`${MAINTENANCE_URL}/${identifier}`)
+}
+
 export const pushNewMaintenanceToServer = async (Maintenance) => {
     return await axios.post(MAINTENANCE_URL, Maintenance)
 }
