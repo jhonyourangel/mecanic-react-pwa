@@ -14,10 +14,6 @@ class Auth extends Component {
         disableButtons: false
     }
 
-    constructor(props) {
-        super(props)
-    }
-
     componentDidMount() {
         if (this.props.authRedirectPath !== '/') {
             this.props.onSetAuthRedirectPath();

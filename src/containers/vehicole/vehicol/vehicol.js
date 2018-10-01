@@ -63,12 +63,6 @@ class Vehicol extends Component {
         this.setState({focusInput: e.target.name})
     }
 
-    /** just in case in the future you have an unexpected bug, check here first */
-    blurChange = async e => {
-        // not sure if null must be set it again
-        // this.setState({focusInput: null})
-    }
-
     delete = (v) => {
         console.log(v)
         this.props.onDeleteVehicle(v)
