@@ -25,5 +25,5 @@ export const setDeleteSync = (vehicle) => {
     return db.vehicle
     .where('plateNumber')
     .equals(vehicle.plateNumber)
-    .modify({...vehicle, sync: 'delete'})
+    .modify({...vehicle})
 } 
