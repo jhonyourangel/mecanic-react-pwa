@@ -10,9 +10,8 @@ class SearchBar extends Component {
     }
 
     valueChanged = (e) => {
-        console.log(e.target.value)
         this.setState({value: e.target.value})
-        this.props.onChange(this.state.value)
+        this.props.onChange(e.target.value)
     }
 
     render() {
