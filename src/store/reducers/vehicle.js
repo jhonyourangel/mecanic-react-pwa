@@ -1,6 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../utility';
-/* eslint no-unused-vars: 0 */  // --> OFF
 
 const initialState = {
     vehicles: [],
@@ -8,7 +7,7 @@ const initialState = {
     loading: false,
 };
 
-const newVehicleStart = ( state, action ) => {
+const newVehicleStart = ( state ) => {
     return updateObject( state, { loading: true } );
 };
 
@@ -22,66 +21,66 @@ const newVehicleSuccess = ( state, action ) => {
     } );
 };
 
-const newVehicleFail = ( state, action ) => {
+const newVehicleFail = ( state ) => {
     return updateObject( state, { loading: false } );
 };
 
 /************************* EDIT */
 
-const editVehicleStart = ( state, action ) => {
+const editVehicleStart = ( state) => {
     return updateObject( state, { loading: true } );
 };
 
 const editVehicleSuccess = ( state, action ) => {
     const editVehicle = action.vehicleData
     
-    let transArray = [...state.vehicles]
-    const index = transArray.findIndex(tran => tran._id === editVehicle._id)
-    transArray.splice(index, 1, editVehicle ) 
+    let list = [...state.vehicles]
+    const index = list.findIndex(item => item._id === editVehicle._id)
+    list.splice(index, 1, editVehicle ) 
 
     return updateObject( state, {
         loading: false,
         purchased: true,
-        vehicles: transArray,
+        vehicles: list,
         vehicle: editVehicle
     } );
 };
 
-const editVehicleFail = ( state, action ) => {
+const editVehicleFail = ( state ) => {
     return updateObject( state, { loading: false } );
 };
 
 /*********************** DELETE */
 
-const deleteVehicleStart = ( state, action ) => {
+const deleteVehicleStart = ( state) => {
     return updateObject( state, { loading: true } );
 };
 
 const deleteVehicleSuccess = ( state, action ) => {
-    const deleteVehicle = {...action.vehicleData, sync: 'delete'}
+    const deleteVehicle = {...action.vehicleData}
     
-    let transArray = [...state.vehicles]
-    const index = transArray.findIndex(tran => tran._id === deleteVehicle._id)
+    let list = [...state.vehicles]
+    const index = list.findIndex(item => item._id === deleteVehicle._id)
     
-    console.log("before splice",transArray.length);
-    transArray.splice(index, 1 ) 
-    console.log("after splice",transArray.length);
+    console.log("before splice",list.length);
+    list.splice(index, 1 ) 
+    console.log("after splice",list.length);
 
     return updateObject( state, {
         loading: false,
-        vehicles: transArray,
+        vehicles: list,
         vehicle: deleteVehicle
     } );
 };
 
-const deleteVehicleFail = ( state, action ) => {
+const deleteVehicleFail = ( state ) => {
     return updateObject( state, { loading: false } );
 };
 
 /******************* FETCH all  */
 
 
-const fetchVehiclesStart = ( state, action ) => {
+const fetchVehiclesStart = ( state ) => {
     return updateObject( state, { loading: true } );
 };
 
