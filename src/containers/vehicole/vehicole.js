@@ -29,27 +29,22 @@ class Vehicole extends Component {
 
     searchCB = (item) => {
         const st = this.state.searchText 
+        // find a regex way of doing this and remove this ugly if
         if (st === '') {
             return true
         }
 
         const stREG = new RegExp(st, 'gi')
-        console.log(st, stREG, item.plateNumber)
-
         return  stREG.test(item.plateNumber) || 
         stREG.test(item.vin)
     }
 
     addVehicle = () => {
-        console.log("add vehicle")
         this.setState({redirect: <Redirect to="/vehicol/new-vehicle" />})
     }
 
     vehicleCells = () =>{
-        if (this.props.vehicles === undefined) {return null}
-        // console.log('this.props.vehicle:', this.props.vehicles)
-        console.log('generate vehicles while searching');
-        
+        if (this.props.vehicles === undefined) {return null}        
         return this.props.vehicles
         .filter(this.searchCB)
         .map( vehicle => {
