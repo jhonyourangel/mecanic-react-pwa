@@ -2,13 +2,13 @@ import React, {Component} from 'react'
 import { Redirect, Link } from 'react-router-dom'
 
 import css from './vehicol.module.css'
-import Aux from '../../hoc/Aux/Aux';
+import Aux from '../../../hoc/Aux/Aux';
 import {MdArrowBack, MdSave, MdDelete} from 'react-icons/md'
-import Rowcell from '../../components/rowcell/rowcell'
+import Rowcell from '../../../components/rowcell/rowcell'
 import { connect } from 'react-redux'
-import axios from '../../network/axios'
-import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
-import * as actions from '../../store/actions'
+import axios from '../../../network/axios'
+import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler'
+import * as actions from '../../../store/actions'
 
 
 class Vehicol extends Component {

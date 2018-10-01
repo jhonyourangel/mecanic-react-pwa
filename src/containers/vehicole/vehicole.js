@@ -23,7 +23,6 @@ class Vehicole extends Component {
 
     searchValue = val => {
         this.setState({searchText: val})
-        // this.forceUpdate()
     }
 
     searchCB = (item) => {
