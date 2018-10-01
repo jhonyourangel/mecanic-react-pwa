@@ -11,7 +11,6 @@ export const Toolbar = ( {
     } ) => (
     <Aux>
         {console.log('loading:', loading)}
-        }
         { loading ? <div className={css.Loading}> </div> : null }
         <header className={css.Toolbar}>
             <DrawerToggle clicked={drawerToggleClicked} /> 

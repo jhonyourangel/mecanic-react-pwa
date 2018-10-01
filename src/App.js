@@ -24,7 +24,7 @@ class App extends Component {
     let routes = (
       <Switch>
         <Route path="/Auth" component={Auth}/>
-        <Route path="/" component={Vehicole}/>
+        <Route path="/" component={Auth}/>
         <Redirect to="/Auth" />
       </Switch>
     )

@@ -3,7 +3,7 @@ import css from './vehicole.module.css'
 import { MdAddCircle } from 'react-icons/md';
 
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 import axios from '../../network/axios'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
@@ -14,11 +14,13 @@ import SearchBar from '../../components/searchBar/searchBar';
 
 class Vehicole extends Component {
     state = {
-        redirect: null,
         searchText: ''
     }
     componentDidMount() {
         this.props.onFetchVehicles()
+        this.redirect = (this.props.token === undefined) ? <Redirect to="/auth" /> : null
+        console.log("redirect:",this.redirect);
+        
     }
 
     searchValue = val => {
@@ -37,9 +39,6 @@ class Vehicole extends Component {
         stREG.test(item.vin)
     }
 
-    addVehicle = () => {
-        this.setState({redirect: <Redirect to="/vehicol/new-vehicle" />})
-    }
 
     vehicleCells = () =>{
         if (this.props.vehicles === undefined) {return null}        
@@ -52,11 +51,12 @@ class Vehicole extends Component {
         render() {
             return (
                 <div>
-                {this.state.redirect}
+                {this.redirect}
                 <div className={css.ToolBar}>
-                    <button onClick={e => this.addVehicle(e)}>
+                    <Link to="/vehicol/new-vehicle" > 
                         <MdAddCircle />
-                    </button>
+                    </Link>
+                    
                     <SearchBar onChange={val => this.searchValue(val)}></SearchBar>
                 </div>
                 {this.vehicleCells()}
