@@ -102,7 +102,7 @@ class Vehicol extends Component {
                     <Link 
                     to="/vehicole"
                     className={css.goBack} 
-                    onClick={()=>this.goBack()}
+                    
                     >
                     <MdArrowBack 
                         style={{fill: '#8E6E53'}}
