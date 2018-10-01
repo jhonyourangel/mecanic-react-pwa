@@ -14,21 +14,11 @@ import registerServiceWorker from './registerServiceWorker';
 import authReducer from './store/reducers/auth'
 import vehicleReducer from './store/reducers/vehicle'
 
-// old
-import transactionReducer from './store/reducers/transaction'
-import projectReducer from './store/reducers/project'
-import dateRangeReducer from './store/reducers/dateRange'
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     auth: authReducer,
     vehicle: vehicleReducer,
-
-    // old
-    transaction: transactionReducer,
-    project: projectReducer,
-    date: dateRangeReducer
 })
 
 const store = createStore(
