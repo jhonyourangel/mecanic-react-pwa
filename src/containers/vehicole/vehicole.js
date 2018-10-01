@@ -51,16 +51,10 @@ class Vehicole extends Component {
         render() {
             return (
                 <div>
-                {this.redirect}
-                <div className={css.ToolBar}>
-                    <Link to="/vehicol/new-vehicle" > 
-                        <MdAddCircle />
-                    </Link>
-                    
-                    <SearchBar onChange={val => this.searchValue(val)}></SearchBar>
+                    {this.redirect}
+                        <SearchBar to="/vehicol/new-vehicle"  onChange={val => this.searchValue(val)}></SearchBar>
+                    {this.vehicleCells()}
                 </div>
-                {this.vehicleCells()}
-            </div>
             )
         }
     }
@@ -80,5 +74,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Vehicole, axios));
+export default connect(mapStateToProps, mapDispatchToProps) (withErrorHandler(Vehicole, axios));
