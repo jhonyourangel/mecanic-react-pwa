@@ -9,7 +9,6 @@ const NavigationItems = ( props ) => {
         <Aux>
             <NavigationItem link="/vehicole">Vehicole</NavigationItem>
             <NavigationItem link="/intretineri">Intretineri</NavigationItem>
-            <NavigationItem link="/produse">Produse</NavigationItem>
             <NavigationItem link="/logout">Logout</NavigationItem>
         </Aux>
     )
