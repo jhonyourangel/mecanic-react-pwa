@@ -19,7 +19,7 @@ describe('axios vehicle', () => {
         brand: 'brand-test',
         model: 'passat-test',
         year: '9999',
-        VIN: 'EFDECASDFASDCASEDFASD'
+        vin: 'EFDECASDFASDCASEDFASD'
     }
     const testAccount = {
         email: 'testAcount@gmail.com',
@@ -36,7 +36,10 @@ describe('axios vehicle', () => {
 
     it('should create a new vehicle ', async ()=> {
         const res = await pushNewVehicleToServer(vehicle)
-        vehicle['_id'] = res.data._id
+        vehicle = {
+            ...vehicle,
+            _id: res.data._id
+        } 
         expect(res).not.toBe(undefined)
         expect(res.data).toMatchObject(vehicle)
     })

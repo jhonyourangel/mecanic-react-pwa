@@ -10,7 +10,7 @@ describe('<Layout />', ()=>{
     const wrapper = shallow(<Layout {...props}/>)
 
     it('should have 4 children',() => {
-        expect(wrapper.children()).toHaveLength(4)
+        expect(wrapper.children()).toHaveLength(3)
     })
 
     describe(' sidedrawer is closed ', () =>{

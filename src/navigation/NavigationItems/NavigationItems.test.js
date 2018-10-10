@@ -26,15 +26,14 @@ describe('<NavigationItems />', ()=>{
         const wrapper = shallow(<NavigationItems {...props}> </NavigationItems>)
         
         it('should render 5 links', ()=> {            
-            expect(wrapper.find('NavigationItem')).toHaveLength(5)
+            expect(wrapper.find('NavigationItem')).toHaveLength(4)
         })
 
         it('should render / and auth links', ()=> {           
             expect(wrapper.find('NavigationItem').at(0).prop('link')).toBe('/')
             expect(wrapper.find('NavigationItem').at(1).prop('link')).toBe('/vehicole')
             expect(wrapper.find('NavigationItem').at(2).prop('link')).toBe('/intretineri')
-            expect(wrapper.find('NavigationItem').at(3).prop('link')).toBe('/produse')
-            expect(wrapper.find('NavigationItem').at(4).prop('link')).toBe('/logout')
+            expect(wrapper.find('NavigationItem').at(3).prop('link')).toBe('/logout')
         })
     })
 })
