@@ -9,7 +9,7 @@ import Logout from './containers/enrollment/Logout/Logout'
 import * as actions from './store/actions';
 import Vehicole from './containers/vehicole/vehicole'
 import Vehicol from './containers/vehicole/vehicol/vehicol'
-import Intretineri from './containers/intretineri/intretineri'
+import Maintenance from './containers/maintenance/maintenance'
 import Produse from './containers/produse/produse'
 
 class App extends Component {
