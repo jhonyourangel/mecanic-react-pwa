@@ -19,7 +19,7 @@ export const editVehicle = async (vehicle) => {
 } 
 
 export const deleteVehicle = async (vehicle) => {
-    return await axios.delete(VEHICLE_URL + '?id=' + vehicle._id)
+    return await axios.delete(VEHICLE_URL + '?_id=' + vehicle._id)
 }
 
 /**

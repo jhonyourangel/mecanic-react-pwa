@@ -19,7 +19,7 @@ export const editProduct = async (Product) => {
 } 
 
 export const deleteProduct = async (Product) => {
-    return await axios.delete(PRODUCT_URL + '?id=' + Product._id)
+    return await axios.delete(PRODUCT_URL + '?_id=' + Product._id)
 }
 
 /**

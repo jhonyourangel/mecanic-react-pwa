@@ -17,7 +17,7 @@ export const editMaintenance = async (Maintenance) => {
 } 
 
 export const deleteMaintenance = async (Maintenance) => {
-    return await axios.delete(MAINTENANCE_URL + '?id=' + Maintenance._id)
+    return await axios.delete(MAINTENANCE_URL + '?_id=' + Maintenance._id)
 }
 
 /**
