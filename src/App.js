@@ -34,7 +34,7 @@ class App extends Component {
         <Switch>
           <Route path="/vehicole" component={Vehicole} />
           <Route path="/vehicol/:plateNumber" component={Vehicol} />
-          <Route path="/intretineri" component={Intretineri} />
+          <Route path="/intretineri" component={Maintenance} />
           <Route path="/produse" component={Produse} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Vehicole} />
