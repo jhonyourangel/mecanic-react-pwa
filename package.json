@@ -4,12 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
-    "cra-append-sw": "^2.5.0",
-    "dexie": "^2.0.4",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "moment": "^2.22.2",
-    "npm": "^6.4.1",
     "react": "^16.5.2",
     "react-chartkick": "^0.3.0",
     "react-dom": "^16.5.2",
@@ -20,7 +17,8 @@
     "react-scripts": "^2.0.4",
     "react-search-bar": "^2.2.0",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "webpack": "4.19.1"
   },
   "scripts": {
     "start": "react-scripts start ",
