@@ -63,8 +63,8 @@ export const auth = (email, password, isSignup) => {
                 dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime())));
             })
             .catch(err => {
-                console.log(err)
-                err.response === undefined ? dispatch(authFail(err)) : dispatch(authFail(err.response.data.error))
+                console.log(err, err.response)
+                err.response === undefined ? dispatch(authFail(err)) : dispatch(authFail(err.response.data))
             });
     };
 };

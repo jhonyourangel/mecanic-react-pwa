@@ -38,8 +38,10 @@ class Auth extends Component {
         console.log(this.props.error);
         
         if (this.props.error) {
-            this.setState({disableButtons: false})
-            errorMessage = (<p>{this.props.error.message}</p>)
+            if (this.state.disableButtons === true) {
+                this.setState({disableButtons: false})
+            }
+            errorMessage = (<p className={css.Invalid}>{this.props.error.message}</p>)
         }
 
         let authRedirect = null;
