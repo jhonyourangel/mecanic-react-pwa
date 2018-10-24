@@ -17,9 +17,9 @@ class Vehicole extends Component {
     }
     
     componentDidMount() {
-        this.props.onFetchVehicles()
         this.redirect = (this.props.token === undefined) ? <Redirect to="/auth" /> : null
         console.log("redirect:",this.redirect);
+        this.props.onFetchVehicles()
     }
 
     searchValue = val => {
