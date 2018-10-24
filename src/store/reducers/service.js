@@ -114,25 +114,25 @@ const fetchServiceFail = ( state ) => {
 const reducer = ( state = initialState, action ) => {
     switch ( action.type ) {
 
-        case actionTypes.NEW_MAINTENANCE_START: return newServiceStart( state, action );
-        case actionTypes.NEW_MAINTENANCE_SUCCESS: return newServiceSuccess( state, action )
-        case actionTypes.NEW_MAINTENANCE_FAIL: return newServiceFail( state, action );
+        case actionTypes.NEW_SERVICE_START: return newServiceStart( state, action );
+        case actionTypes.NEW_SERVICE_SUCCESS: return newServiceSuccess( state, action )
+        case actionTypes.NEW_SERVICE_FAIL: return newServiceFail( state, action );
 
-        case actionTypes.EDIT_MAINTENANCE_START: return editServiceStart( state, action );
-        case actionTypes.EDIT_MAINTENANCE_SUCCESS: return editServiceSuccess( state, action )
-        case actionTypes.EDIT_MAINTENANCE_FAIL: return editServiceFail( state, action );
+        case actionTypes.EDIT_SERVICE_START: return editServiceStart( state, action );
+        case actionTypes.EDIT_SERVICE_SUCCESS: return editServiceSuccess( state, action )
+        case actionTypes.EDIT_SERVICE_FAIL: return editServiceFail( state, action );
 
-        case actionTypes.DELETE_MAINTENANCE_START: return deleteServiceStart( state, action );
-        case actionTypes.DELETE_MAINTENANCE_SUCCESS: return deleteServiceSuccess( state, action )
-        case actionTypes.DELETE_MAINTENANCE_FAIL: return deleteServiceFail( state, action );
+        case actionTypes.DELETE_SERVICE_START: return deleteServiceStart( state, action );
+        case actionTypes.DELETE_SERVICE_SUCCESS: return deleteServiceSuccess( state, action )
+        case actionTypes.DELETE_SERVICE_FAIL: return deleteServiceFail( state, action );
 
-        case actionTypes.FETCH_MAINTENANCE_START: return fetchServiceStart( state, action );
-        case actionTypes.FETCH_MAINTENANCE_SUCCESS: return fetchServiceSuccess( state, action );
-        case actionTypes.FETCH_MAINTENANCE_FAIL: return fetchServiceFail( state, action );
+        case actionTypes.FETCH_SERVICE_START: return fetchServiceStart( state, action );
+        case actionTypes.FETCH_SERVICE_SUCCESS: return fetchServiceSuccess( state, action );
+        case actionTypes.FETCH_SERVICE_FAIL: return fetchServiceFail( state, action );
 
-        case actionTypes.FETCH_MAINTENANCES_START: return fetchServicesStart( state, action );
-        case actionTypes.FETCH_MAINTENANCES_SUCCESS: return fetchServicesSuccess( state, action );
-        case actionTypes.FETCH_MAINTENANCES_FAIL: return fetchServicesFail( state, action );
+        case actionTypes.FETCH_SERVICES_START: return fetchServicesStart( state, action );
+        case actionTypes.FETCH_SERVICES_SUCCESS: return fetchServicesSuccess( state, action );
+        case actionTypes.FETCH_SERVICES_FAIL: return fetchServicesFail( state, action );
         default: return state;
     }
 };

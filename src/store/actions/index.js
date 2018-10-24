@@ -13,3 +13,21 @@ export {
     fetchVehicles,
 
 } from './vehicle';
+
+export {
+    newMaintenance,
+    editMaintenance,
+    deleteMaintenance,
+    fetchMaintenance,
+    fetchMaintenances,
+
+} from './maintenance';
+
+export {
+    newService,
+    editService,
+    deleteService,
+    fetchService,
+    fetchServices,
+
+} from './service';
