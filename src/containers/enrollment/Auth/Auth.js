@@ -35,7 +35,6 @@ class Auth extends Component {
     render () {
 
         let errorMessage = null;
-        console.log(this.props.error);
         
         if (this.props.error) {
             if (this.state.disableButtons === true) {
