@@ -9,12 +9,12 @@ import axios from '../axios';
 
 describe('axios maintenance', () => {
     let maintenance = {
-        createdBy: 'a user _id ',
-        products: ['oil', 'air filter', 'oil filter', 'ac filter'],
-        category: 'full maintanance/breaks/tires',
-        plateNumber: 'SV10RCE',
-        vin: 'THIS_SHOULD_BE_THE_VIN',
-        carKm: 229000
+        "createdBy": "a user _id ",
+        "products": ["oil", "air filter", "oil filter", "ac filter"],
+        "category": "full maintanance/breaks/tires",
+        "plateNumber": "SV10RCE",
+        "vin": "THIS_SHOULD_BE_THE_VIN",
+        "carKm": 229000
     }
     const testAccount = {
         email: 'testAcount@gmail.com',
