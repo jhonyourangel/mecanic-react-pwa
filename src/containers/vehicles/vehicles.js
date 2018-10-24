@@ -51,7 +51,7 @@ class Vehicole extends Component {
             return (
                 <div>
                     {this.redirect}
-                    <SearchBar to="/vehicol/new-vehicle"  onChange={val => this.searchValue(val)}></SearchBar>
+                    <SearchBar to="/vehicle/new-vehicle"  onChange={val => this.searchValue(val)}></SearchBar>
                     {this.vehicleCells()}
                 </div>
             )

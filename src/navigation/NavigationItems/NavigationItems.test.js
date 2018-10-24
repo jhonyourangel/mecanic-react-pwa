@@ -31,8 +31,8 @@ describe('<NavigationItems />', ()=>{
 
         it('should render / and auth links', ()=> {           
             expect(wrapper.find('NavigationItem').at(0).prop('link')).toBe('/')
-            expect(wrapper.find('NavigationItem').at(1).prop('link')).toBe('/vehicole')
-            expect(wrapper.find('NavigationItem').at(2).prop('link')).toBe('/intretineri')
+            expect(wrapper.find('NavigationItem').at(1).prop('link')).toBe('/vehicles')
+            expect(wrapper.find('NavigationItem').at(2).prop('link')).toBe('/maintenances')
             expect(wrapper.find('NavigationItem').at(3).prop('link')).toBe('/logout')
         })
     })

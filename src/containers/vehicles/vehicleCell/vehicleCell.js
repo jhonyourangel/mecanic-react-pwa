@@ -23,7 +23,7 @@ const VehicleCell = (props) => {
     
    return (
        <Rowcell>
-            <Link to={'/vehicol/' + plateNumber} style={{ textDecoration: 'none' }}>
+            <Link to={`/vehicle/${plateNumber}`} style={{ textDecoration: 'none' }}>
                 <div className={css.InfoContainer}>
                     <div className={css.Column1}>
                         <p className={css.PlateNumber}>{plateNumber}</p>
