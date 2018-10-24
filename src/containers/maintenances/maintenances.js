@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import css from './maintenances.module.css'
+// import css from './maintenances.module.css'
 import { connect } from 'react-redux'
 
 import axios from '../../network/axios'
@@ -19,7 +19,7 @@ class Intretineri extends Component {
 
     generateMaintenanceRows = maintenancesArr => {
         const rows = maintenancesArr.map( item => {
-            return <MaintenanceCell maintenance={item}></MaintenanceCell>
+            return <MaintenanceCell key={item._id} maintenance={item}></MaintenanceCell>
         })
         return rows
     }

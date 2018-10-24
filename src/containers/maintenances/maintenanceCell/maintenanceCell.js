@@ -26,7 +26,9 @@ class MaintenanceCell extends Component {
                         <h3>{plateNumber}</h3>
                         <p className={css.CreationDate}>{moment(creationDate).format('DD MMM YYYY')}</p>
                     </section>
-                    <p>km: {carKm}</p>
+                    <section>
+                        <p>km: {carKm}</p>
+                    </section>
                 </Link>
             </article>
         )
