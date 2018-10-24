@@ -7,11 +7,12 @@ import Layout from './hoc/Layout/Layout';
 import Auth from './containers/enrollment/Auth/Auth';
 import Logout from './containers/enrollment/Logout/Logout'
 import * as actions from './store/actions';
-import Vehicole from './containers/vehicole/vehicole'
-import Vehicol from './containers/vehicole/vehicol/vehicol'
-import Maintenance from './containers/maintenance/maintenance'
-import MaintenancePage from './containers/maintenance/maintenancePage/maintenancePage'
-import Produse from './containers/produse/produse'
+
+import Vehicles from './containers/vehicles/vehicles'
+import VehiclePage from './containers/vehicles/vehiclePage/vehiclePage'
+import Maintenances from './containers/maintenances/maintenances'
+import MaintenancePage from './containers/maintenances/maintenancePage/maintenancePage'
+import Products from './containers/products/products'
 
 class App extends Component {
   componentDidMount() {
@@ -33,13 +34,13 @@ class App extends Component {
     if ( this.props.isAuthenticated ) {
       routes = (
         <Switch>
-          <Route path="/vehicole" component={Vehicole} />
-          <Route path="/vehicol/:plateNumber" component={Vehicol} />
-          <Route path="/intretineri" component={Maintenance} />
-          <Route path="/intretinere/:maintenance" component={MaintenancePage} />
-          <Route path="/produse" component={Produse} />
+          <Route path="/vehicles" component={Vehicles} />
+          <Route path="/vehicle/:plateNumber" component={VehiclePage} />
+          <Route path="/maintenances" component={Maintenances} />
+          <Route path="/maintenance/:maintenance" component={MaintenancePage} />
+          <Route path="/products" component={Products} />
           <Route path="/logout" component={Logout} />
-          <Route path="/" component={Vehicole} />
+          <Route path="/" component={Vehicles} />
           <Redirect to="/" />
         </Switch>
       )

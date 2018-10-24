@@ -1,11 +1,11 @@
 import React from 'react'
-import css from './vehicolCell.module.css'
+import css from './vehicleCell.module.css'
 import { MdPhone, MdEmail, MdTextsms, MdMessage } from 'react-icons/md';
 import { Link } from 'react-router-dom'
 import Rowcell from '../../../components/rowcell/rowcell';
 
 // contact_phone
-const VehicoleCell = (props) => {
+const VehicleCell = (props) => {
     const {
             plateNumber, 
             // plateNationality, 
@@ -50,4 +50,4 @@ const VehicoleCell = (props) => {
 
 
 
-export default VehicoleCell
+export default VehicleCell

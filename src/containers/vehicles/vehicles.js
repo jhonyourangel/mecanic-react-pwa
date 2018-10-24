@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import css from './vehicole.module.css'
+// import css from './vehicles.module.css'
 
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
@@ -8,7 +8,7 @@ import axios from '../../network/axios'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../store/actions'
 
-import VehicolCell from './vehicolCell/vehicolCell';
+import VehicleCell from './vehicleCell/vehicleCell';
 import SearchBar from '../../components/searchBar/searchBar';
 
 class Vehicole extends Component {
@@ -44,14 +44,14 @@ class Vehicole extends Component {
         return this.props.vehicles
         .filter(this.searchCB)
         .map( vehicle => {
-            return <VehicolCell key={vehicle.plateNumber} vehicle={vehicle}></VehicolCell>
+            return <VehicleCell key={vehicle.plateNumber} vehicle={vehicle}></VehicleCell>
         })
     }
         render() {
             return (
                 <div>
                     {this.redirect}
-                        <SearchBar to="/vehicol/new-vehicle"  onChange={val => this.searchValue(val)}></SearchBar>
+                    <SearchBar to="/vehicol/new-vehicle"  onChange={val => this.searchValue(val)}></SearchBar>
                     {this.vehicleCells()}
                 </div>
             )

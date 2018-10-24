@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import css from './maintenance.module.css'
+import css from './maintenances.module.css'
 import { connect } from 'react-redux'
 
 import axios from '../../network/axios'

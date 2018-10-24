@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Redirect, Link } from 'react-router-dom'
 
-import css from './vehicol.module.css'
+import css from './vehiclePage.module.css'
 import Aux from '../../../hoc/Aux/Aux';
 import {MdArrowBack, MdSave, MdDelete} from 'react-icons/md'
 import Rowcell from '../../../components/rowcell/rowcell'
