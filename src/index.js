@@ -13,12 +13,18 @@ import registerServiceWorker from './registerServiceWorker';
 
 import authReducer from './store/reducers/auth'
 import vehicleReducer from './store/reducers/vehicle'
+import maintenanceReducer from './store/reducers/maintenance'
+import serviceReducer from './store/reducers/service'
+import productReducer from './store/reducers/product'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     auth: authReducer,
     vehicle: vehicleReducer,
+    maintenance: maintenanceReducer,
+    service: serviceReducer,
+    product: productReducer,
 })
 
 const store = createStore(
