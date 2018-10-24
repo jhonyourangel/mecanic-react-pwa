@@ -10,6 +10,7 @@ import * as actions from './store/actions';
 import Vehicole from './containers/vehicole/vehicole'
 import Vehicol from './containers/vehicole/vehicol/vehicol'
 import Maintenance from './containers/maintenance/maintenance'
+import MaintenancePage from './containers/maintenance/maintenancePage/maintenancePage'
 import Produse from './containers/produse/produse'
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
           <Route path="/vehicole" component={Vehicole} />
           <Route path="/vehicol/:plateNumber" component={Vehicol} />
           <Route path="/intretineri" component={Maintenance} />
+          <Route path="/intretinere/:maintenance" component={MaintenancePage} />
           <Route path="/produse" component={Produse} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Vehicole} />
