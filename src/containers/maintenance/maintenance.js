@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import css from './intretineri.module.css'
+import css from './maintenance.module.css'
 import { connect } from 'react-redux'
 
 import axios from '../../network/axios'
@@ -7,30 +7,45 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../store/actions'
 
 import SearchBar from '../../components/searchBar/searchBar';
+import MaintenanceCell from './maintenanceCell/maintenanceCell';
 
 
 class Intretineri extends Component {
+
+    componentDidMount = async () => {
+        await this.props.onFetchMaintenances()
+        
+    }
+
+    generateMaintenanceRows = maintenancesArr => {
+        const rows = maintenancesArr.map( item => {
+            return <MaintenanceCell maintenance={item}></MaintenanceCell>
+        })
+        return rows
+    }
+
     render() {
         return (
-            <div>
+            <section>
                 <SearchBar 
                 to="/intretineri/new-intretinere" 
                 onChange={val => this.searchValue(val)}></SearchBar>
-            </div>
+                { this.generateMaintenanceRows(this.props.maintenances) }
+            </section>
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        vehicles: state.vehicle.vehicles,
+        maintenances: state.maintenance.maintenances,
         token: state.auth.token,
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        onFetchVehicles: () => dispatch(actions.fetchVehicles()),
+        onFetchMaintenances: () => dispatch(actions.fetchMaintenances()),
     };
 };
 
