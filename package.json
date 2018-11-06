@@ -28,6 +28,7 @@
     "test-cov": "npm test -- --coverage",
     "toBK": "cp -r ./build/ ../../GitHub/mecanic-dev/client_pwa/",
     "btb": "react-scripts build && cp -r ./build/ ../../GitHub/mecanic-dev/client_pwa/",
+    "commit_push_backend": "git commit -m ",
     "eject": "react-scripts eject"
   },
   "browserslist": {

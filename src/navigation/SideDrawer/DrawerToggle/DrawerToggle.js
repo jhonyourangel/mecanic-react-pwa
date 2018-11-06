@@ -1,13 +1,26 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom'
+import css from './DrawerToggle.module.css';
 
-import classes from './DrawerToggle.module.css';
+const DrawerToggle = (props) => {
+    const pathDeepLevel = () => window.location.pathname.match(/\/./g) && window.location.pathname.match(/\/./g).length
+    const cssClasses = () => [css.DrawerToggle, (pathDeepLevel()-1 < 1) ? '' : css.Arrow ].join(' ')
+    
+    const clickHandler = () => {
+        if ( pathDeepLevel()-1 < 1 ) {
+            props.onClick()
+        } else {
+            props.history.goBack()
+        }
+    } 
 
-const DrawerToggle = (props) => (
-    <div className={classes.DrawerToggle} onClick={props.clicked}>
-        <div></div>
-        <div></div>
-        <div></div>
-    </div>
-);
+    return (
+        <section className={cssClasses()} onClick={clickHandler}>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+    )
+}
 
-export default DrawerToggle;
+export default withRouter(DrawerToggle)

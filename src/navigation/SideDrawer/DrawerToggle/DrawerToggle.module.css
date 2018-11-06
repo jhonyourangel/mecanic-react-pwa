@@ -15,3 +15,38 @@
     height: 3px;
     background-color: white;
 }
+
+.DrawerToggle.Arrow > div:nth-of-type(1) {
+    animation-duration: 0.3s;
+    animation-name: to1;
+    animation-fill-mode: forwards;
+}
+
+.DrawerToggle.Arrow > div:nth-of-type(3) {
+    animation-duration: 0.3s;
+    animation-name: to2;
+    animation-fill-mode: forwards;
+}
+
+/* return to menu position */
+.DrawerToggle > div:nth-of-type(1),
+.DrawerToggle > div:nth-of-type(3) {
+    animation-duration: 0.3s;
+    animation-name: initialState;
+    animation-fill-mode: forwards;
+}
+
+@keyframes to1 {
+    to {
+        transform: translate(-11px, 6px) rotate(-45deg);
+        width: 50%;
+    }
+}
+
+@keyframes to2 {
+    to {
+        transform: translate(-11px, -6px) rotate(45deg);
+        width: 50%;
+    }
+}
+

@@ -21,7 +21,7 @@ class MaintenanceCell extends Component {
         
         return (
             <article className={css.MaintenanceCell}>
-                <Link to={`/intretinere/${_id}`}>
+                <Link to={`/maintenance/${_id}`}>
                     <section>
                         <h3>{plateNumber}</h3>
                         <p className={css.CreationDate}>{moment(creationDate).format('DD MMM YYYY')}</p>

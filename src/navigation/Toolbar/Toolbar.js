@@ -5,19 +5,18 @@ import css from './Toolbar.module.css';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 import Aux from '../../hoc/Aux/Aux';
 
-export const Toolbar = ( {
-    loading = true, 
-    drawerToggleClicked
-    } ) => (
-    <Aux>
+export const Toolbar = ( props ) => {
+    const {loading = true, drawerToggleClicked } = props
+
+    return <Aux>
         {console.log('loading:', loading)}
         { loading ? <div className={css.Loading}> </div> : null }
         <header className={css.Toolbar}>
-            <DrawerToggle clicked={drawerToggleClicked} /> 
+            <DrawerToggle onClick={drawerToggleClicked} /> 
             <h2 className={css.ProjName}>Auto SOFPET <span className={css.alpha}>(alpha)</span></h2>       
         </header>
     </Aux>
-);
+}
 
 const mapStateToProps = state => {
     return {
