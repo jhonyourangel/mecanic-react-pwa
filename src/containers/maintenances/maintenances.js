@@ -12,8 +12,8 @@ import MaintenanceCell from './maintenanceCell/maintenanceCell';
 
 class Intretineri extends Component {
 
-    componentDidMount = async () => {
-        await this.props.onFetchMaintenances()
+    componentDidMount = () => {
+        this.props.onFetchMaintenances()
         
     }
 

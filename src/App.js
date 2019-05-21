@@ -37,7 +37,7 @@ class App extends Component {
           <Route path="/vehicles" component={Vehicles} />
           <Route path="/vehicle/:plateNumber" component={VehiclePage} />
           <Route path="/maintenances" component={Maintenances} />
-          <Route path="/maintenance/:maintenance" component={MaintenancePage} />
+          <Route path="/maintenance/:maintenanceId" component={MaintenancePage} />
           <Route path="/products" component={Products} />
           <Route path="/logout" component={Logout} />
           <Route path="/" component={Vehicles} />

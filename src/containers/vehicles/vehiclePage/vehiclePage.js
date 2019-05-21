@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Redirect, Link } from 'react-router-dom'
-
 import css from './vehiclePage.module.css'
+
 import Aux from '../../../hoc/Aux/Aux';
 import {MdArrowBack, MdSave, MdDelete} from 'react-icons/md'
 import Rowcell from '../../../components/rowcell/rowcell'
@@ -11,7 +11,7 @@ import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler'
 import * as actions from '../../../store/actions'
 
 
-class Vehicol extends Component {
+class VehicolPage extends Component {
     state = {
         vehicle: {
             plateNumber: this.props.match.params.plateNumber,
@@ -192,4 +192,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(Vehicol, axios));
+export default connect(mapStateToProps, mapDispatchToProps)(withErrorHandler(VehicolPage, axios));
