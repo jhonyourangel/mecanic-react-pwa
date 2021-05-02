@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "moment": "^2.22.2",
@@ -14,11 +14,12 @@
     "react-icons": "^3.1.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.0.4",
+    "react-scripts": "^4.0.0",
     "react-search-bar": "^2.2.0",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "webpack": "4.26.0"
+    "webpack": "4.26.0",
+    "snyk": "^1.575.0"
   },
   "scripts": {
     "start": "react-scripts start ",
@@ -29,7 +30,9 @@
     "toBK": "cp -r ./build/ ../../GitHub/mecanic-dev/client_pwa/",
     "btb": "react-scripts build && cp -r ./build/ ../../GitHub/mecanic-dev/client_pwa/",
     "commit_push_backend": "git commit -m ",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "browserslist": {
     "development": [
@@ -42,5 +45,6 @@
       "not op_mini all",
       "ie 11"
     ]
-  }
+  },
+  "snyk": true
 }
